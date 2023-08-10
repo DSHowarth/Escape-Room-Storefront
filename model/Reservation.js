@@ -18,15 +18,16 @@ Reservation.init(
         // user_id Foreign Key
         user_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
-        // No more than 5 people allowed in the escape room at a time
         party_size: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            // No more than 5 people allowed in the escape room at a time
             validate: {
                 max: 5
               }
@@ -36,5 +37,11 @@ Reservation.init(
             type: DataTypes.STRING,
             allowNull: false,
         }
+    },{
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'reservation',
     }
 )
