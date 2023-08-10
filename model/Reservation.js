@@ -45,3 +45,5 @@ Reservation.init(
         modelName: 'reservation',
     }
 )
+
+module.exports = Reservation
