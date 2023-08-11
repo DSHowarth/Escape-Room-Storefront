@@ -2,6 +2,7 @@
 const express = require('express')
 const session = require('express-session')
 const exhbs = require('express-handlebars')
+const path = require('path')
 
 // creating a handlebar
 const hbs = exhbs.create({})
@@ -36,6 +37,7 @@ app.set('view engine', 'handlebars')
 // setting up express middle wares
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // hand in any incoming request to the router
 app.use(routes)
