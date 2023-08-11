@@ -2,6 +2,9 @@ const router = require('express').Router();
 const { Reservation, User} = require('./model');
 const dayjs = require('dayjs');
 
+// TODO: Timezones, only retrieve records for upcoming date/times,
+// pray it works as-is
+
 // for use in map function below, to turn sequelize data into something usable
 const reservationParse = function (row) {
     let rowObj  = row.get({ plain: true})
@@ -37,13 +40,16 @@ const createRenderObj = function (resList) {
 }
 
 router.get('/', async (req, res)=>{
-    let reservationInfo = await Reservation.findAll({
+    let reservationList = await Reservation.findAll({
         attributes: [date]
     });
+    // create list of reservation dates 
+    reservationList = await reservationList.map(reservationParse(reserv));
+    //create render object
+    let reservationRenderInfo = {};
 
-    reservationInfo = await reservationInfo.map(reservationParse(reserv));
-
-
+    // generate list of dates/times and add it to render object
+    reservationRenderInfo.days = createRenderObj(reservationList)
 
 
     if (req.session.loggedIn){
