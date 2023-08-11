@@ -5,15 +5,6 @@ const dayjs = require('dayjs');
 // TODO: Timezones, only retrieve records for upcoming date/times,
 // pray it works as-is
 
-// for use in map function below, to turn sequelize data into something usable
-const reservationParse = function (row) {
-    console.log('made it into render function')
-    let rowObj  = row.get({ plain: true})
-    console.log(rowObj)
-    // return the date value, extracted from object form
-    return dayjs(rowObj.date).format('dddd MMMM D, YYYY h:mm a');
-}
-
 // create an array of objects, each one being a day and its available times
 const createRenderObj = function (resList) {
     console.log('made it into render function')
@@ -42,9 +33,6 @@ const createRenderObj = function (resList) {
     return daysList;
 }
 
-// is 'Monday May 2, 2023 1:00 pm' in our reservations database
-// ['Monday May 2, 2023 2:00 pm', 'Monday May 2, 2023 1:00 pm',]
-
 router.get('/', async (req, res)=>{
     try {
     console.log('in the try')
@@ -71,7 +59,7 @@ router.get('/', async (req, res)=>{
     if (req.session.loggedIn){
         reservationRenderInfo.loggedIn = true
     }
-    res.render('reservations', { days: reservationRenderInfo.days, loggedIn: reservationRenderInfo.loggedIn })
+    res.render('reservations', reservationRenderInfo )
     } catch (err) {
         res.status(500).json(err)
     }

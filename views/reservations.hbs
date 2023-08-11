@@ -2,11 +2,11 @@
     <h1> Reservations are made on a first come, first serve basis. Please select a time and date below to reserve now:</h1>
     <div>
         {{!-- Create a div for each day, and create a button for every available time slot that day --}}
-        {{#each days as |day|}}
+        {{#each days}}
         <div>
-           <h5>{{day.date}}</h5>
-           {{#each day.avail_times as time}}
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal">{{time}}</button>
+           <h5>{{date}}</h5>
+           {{#each avail_times}}
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal">{{this}}</button>
            {{/each}}
         </div>
         {{/each}}
