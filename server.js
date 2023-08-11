@@ -5,8 +5,6 @@ const exhbs = require('express-handlebars')
 const {engine} = require('express-handlebars')
 const path = require('path')
 
-// creating a handlebar
-const hbs = exhbs.create({})
 
 // connecting with router
 const routes = require('./controllers/index')
