@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Reservation, User} = require('./model');
+const { Reservation, User} = require('../model');
 const dayjs = require('dayjs');
 
 // TODO: Timezones, only retrieve records for upcoming date/times,
@@ -28,7 +28,7 @@ const createRenderObj = function (resList) {
             avail_times: []
         };
         // if there isn't a slot booked for that time, add it to the list of avail times
-        for (let time in times) {
+        for (let time of times) {
             if (!resList.includes(dayObj.date + ' ' + time)) {
                 dayObj.avail_times.push(time)
             }
@@ -38,6 +38,9 @@ const createRenderObj = function (resList) {
 
     return daysList;
 }
+
+// is 'Monday May 2, 2023 1:00 pm' in our reservations database
+// ['Monday May 2, 2023 2:00 pm', 'Monday May 2, 2023 1:00 pm',]
 
 router.get('/', async (req, res)=>{
     try {
