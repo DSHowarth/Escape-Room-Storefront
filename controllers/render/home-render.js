@@ -32,17 +32,14 @@ router.get("/", async (req, res) => {
 
 router.get("/reservation/:id", async (req, res) => {
   try {
-    const resData = await Reservation.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ["name"],
-        },
-      ],
-    });
+    const resData = await Reservation.findByPk(req.params.id);
+    if (!resData) {
+      res.status(404).json("No reservation found with this ID!");
+      return;
+    }
     const reservation = resData.get({ plain: true });
     res.render("reservation", {
-      ...reservation,
+      reservation,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
