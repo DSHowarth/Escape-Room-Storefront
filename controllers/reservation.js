@@ -40,6 +40,7 @@ const createRenderObj = function (resList) {
 }
 
 router.get('/', async (req, res)=>{
+    try {
     let reservationList = await Reservation.findAll({
         attributes: [date]
     });
@@ -56,5 +57,8 @@ router.get('/', async (req, res)=>{
         reservationRenderInfo.loggedIn = true
     }
     res.render('reservations', reservationRenderInfo)
+    } catch {
+        res.status(500).json(err)
+    }
 })
 
