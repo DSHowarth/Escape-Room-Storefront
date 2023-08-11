@@ -15,7 +15,7 @@ const reservationParse = function (row) {
 // create an array of objects, each one being a day and its available times
 const createRenderObj = function (resList) {
     let daysList = [];
-    // create a dayjs object out of current time
+    // create a dayjs object out of current timed
     let currentDay = dayjs().format('dddd MMMM D, YYYY');
     // possible timeslots
     let times = ['10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm'];
