@@ -24,7 +24,7 @@
           <a href="/">home</a>|
           <a href="/about">about</a>|
           <a href="/reservations">reservations</a>|
-          {{#if logged_in}}
+          {{#if loggedIn}}
             {{! <a href="/profile">dashboard</a>| }}
             <button class="no-button" id="logout">logout</button>
           {{else}}
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
   </body>
