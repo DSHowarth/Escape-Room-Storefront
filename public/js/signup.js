@@ -10,7 +10,11 @@ signupForm.addEventListener('submit', async function(event){
     event.preventDefault()
 
     // check if the password matches the confirm password
-    
+    if(passwordIn.value != passwordConfirm.value){
+        // end the function if they don't match
+        alert()
+        return;
+    }
 
     // construct a body object for fetch request
     const bodyObj = {
@@ -28,6 +32,14 @@ signupForm.addEventListener('submit', async function(event){
         body: JSON.stringify(bodyObj)
     })
 
-    
+    // if every thing went well
+    if(response.ok){
+        // redirect the user to home page
+        window.location.href = '/'
+    }else {
+        alert('well something went wrong')
+        const json = await response.json()
+        console.log(json)
+    }
 
 })
