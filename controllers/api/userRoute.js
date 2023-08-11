@@ -21,7 +21,7 @@ router.post('/signup', async (req, res)=>{
                 req.session.userId = newUser.id
 
                 // keeping track of login status
-                req.session.log
+                req.session.loggedIn = true
 
                 res.status(200).json({message: "Created a new user successfully", newUser})
             })
@@ -36,6 +36,14 @@ router.post('/signup', async (req, res)=>{
 })
 
 // user logs in
+router.post('/login', async (req, res) => {
+    try{
+        
+
+    }catch(error){
+        res.status(500).json({message: "Error while logging in", err})
+    }
+})
 
 // user log out
 
