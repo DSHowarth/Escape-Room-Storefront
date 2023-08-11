@@ -6,37 +6,47 @@
         <div>
            <h5>{{date}}</h5>
            {{#each avail_times}}
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal">{{this}}</button>
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#resModal">{{this}}</button>
            {{/each}}
         </div>
         {{/each}}
     </div>
     {{!-- Modal changes depending on whether user is logged in. If not, prompts them to do so instead of saving reservation --}}
     {{#if loggedIn}}
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="resModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+            <h1 class="modal-title fs-5">Confirmation</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="modalBody">
             Book an Appointment for May 2nd, 2024 at 10:00 am?
+            <form>
+                  <div class="form-group">
+                    <label for="partyCount">Number of Participants</label>
+                    <input type="text" class="form-control" id="partyCount">
+                    <small id="emailHelp" class="form-text text-muted">Max 5</small>
+                    <div class="invalid-feedback">
+                        Party size must be 5 or fewer
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Confirm</button>
+            <button type="button" class="btn btn-primary" id="resConfirm">Confirm</button>
         </div>
         </div>
     </div>
     </div>
     {{/if}}
     {{#unless loggedIn}}
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="resModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Unable to Reserve Time</h1>
+            <h1 class="modal-title fs-5">Unable to Reserve Time</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -44,8 +54,8 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Login</button>
-            <button type="button" class="btn btn-primary">Sign Up</button>
+            <button type="button" class="btn btn-primary" id="resLogin">Login</button>
+            <button type="button" class="btn btn-primary" id="resSignUp">Sign Up</button>
         </div>
         </div>
     </div>
