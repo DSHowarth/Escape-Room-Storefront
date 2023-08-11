@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Reservation, User} = require('../model');
+const { Reservation, User} = require('../../model');
 const dayjs = require('dayjs');
 
 // TODO: Timezones, only retrieve records for upcoming date/times,
