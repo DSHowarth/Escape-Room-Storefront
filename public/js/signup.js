@@ -12,14 +12,14 @@ signupForm.addEventListener('submit', async function(event){
     // check if the password matches the confirm password
     if(passwordIn.value != passwordConfirm.value){
         // end the function if they don't match
-        alert()
+        alert('your password must match with confirm')
         return;
     }
 
     // construct a body object for fetch request
     const bodyObj = {
-        username: usernameIn.value,
-        email: emailIn.value,
+        username: usernameIn.value.trim(),
+        email: emailIn.value.trim(),
         password: passwordIn.value
     }
 

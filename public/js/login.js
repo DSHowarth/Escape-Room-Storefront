@@ -9,7 +9,7 @@ loginForm.addEventListener('submit', async function(event){
 
     // construct an object for the body
     const bodyObj = {
-        email: emailIn.value,
+        email: emailIn.value.trim(),
         password: passwordIn.value
     }
 
