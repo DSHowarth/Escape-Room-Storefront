@@ -1,0 +1,11 @@
+:root {
+  /*----------COLORS----------*/
+  --grey: #cbcbcb;
+  --green: #82a390;
+
+  /*----------FONTS----------*/
+
+  --font-titles: "Forma DJR Display"; /* titles */
+  --font-navbar: "Quicksand"; /* nav-bar */
+  --font-buttons: "Acumin Variable Concept"; /* buttons */
+}

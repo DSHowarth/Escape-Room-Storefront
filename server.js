@@ -1,7 +1,8 @@
 // imports all the necessary packages
 const express = require('express')
 const session = require('express-session')
-const { engine } = require('express-handlebars')
+const exhbs = require('express-handlebars')
+const {engine} = require('express-handlebars')
 const path = require('path')
 
 
@@ -31,7 +32,7 @@ app.use(session(sess))
 // equipping handlebar engine
 app.engine('.hbs', engine({extname: '.hbs'}))
 app.set('view engine', '.hbs')
-app.set('views', './views');
+app.set('views', './views')
 
 // setting up express middle wares
 app.use(express.json())

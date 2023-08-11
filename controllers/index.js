@@ -1,8 +1,8 @@
 const router = require('express').Router()
-const login = require('./login-render')
-const reservations = require('./reservation')
+const renderRoute = require('./render/index')
+const apiRoute = require('./api/index')
 
-router.use('/login', login)
-router.use('/reservation', reservations)
+router.use('/api', apiRoute)
+router.use('/', renderRoute)
 
 module.exports = router
