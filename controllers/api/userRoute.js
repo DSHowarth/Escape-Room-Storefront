@@ -39,10 +39,11 @@ router.post('/signup', async (req, res)=>{
 // user logs in
 router.post('/login', async (req, res) => {
     try{
+        console.log(req.body)
         // checks if the body is valid
         if(req.body.email && req.body.password){
             // checks if the user email is valid
-            const user = User.findOne({
+            const user = await User.findOne({
                 where: {
                     email: req.body.email
                 }
@@ -71,14 +72,15 @@ router.post('/login', async (req, res) => {
                 // keeping track of login status
                 req.session.loggedIn = true
 
-                res.status(200).json({message: "Created a new user successfully", newUser})
+                res.status(200).json({message: "Logged in successfully", user})
             })
         }else {
             res.status(404).json({message: 'invalid body passed'})
+            return
         }
 
     }catch(error){
-        res.status(500).json({message: "Error while logging in", err})
+        res.status(500).json({message: "Error while logging in", error})
     }
 })
 
