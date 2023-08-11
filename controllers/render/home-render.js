@@ -30,9 +30,9 @@ router.get("/", async (req, res) => {
 
 // --------------------------- GET One by ID Router -------------------------------- //
 
-router.get("/user/:id", async (req, res) => {
+router.get("/reservation/:id", async (req, res) => {
   try {
-    const userdata = await User.findByPk(req.params.id, {
+    const resData = await Reservation.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -40,13 +40,9 @@ router.get("/user/:id", async (req, res) => {
         },
       ],
     });
-    if (!userdata) {
-      res.status(404).json("No user found with this ID!");
-      return;
-    }
-    const user = userData.get({ plain: true });
-    res.render("user", {
-      ...user,
+    const reservation = resData.get({ plain: true });
+    res.render("reservation", {
+      ...reservation,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -61,7 +57,7 @@ router.get("/profile", withAuth, async (req, res) => {
     // find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: User }],
+      include: [{ model: Reservation }],
     });
     const user = userData.get({ plain: true });
     res.render("profile", {
