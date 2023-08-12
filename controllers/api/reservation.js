@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Reservation} = require('../../model/index');
 const dayjs = require('dayjs')
 
+// route for handling new reservation requests
 router.post('/', async (req, res) => {
     try {
         // create new entry in table

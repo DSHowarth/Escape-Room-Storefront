@@ -42,7 +42,6 @@ router.post('/login', async (req, res) => {
         
         // checks if the body is valid
         if(req.body.email && req.body.password){
-            console.log('\npassed the if statement\n')
             // checks if the user email is valid
             const user = await User.findOne({
                 where: {
@@ -53,7 +52,7 @@ router.post('/login', async (req, res) => {
             // if user does not exist by the email
             if(!user){
                 
-                res.status(404).json({message: "Incorrect Email or password"})
+                res.status(404).json({message: "Incorrect Email or Password"})
                 return
             }
 
@@ -64,7 +63,7 @@ router.post('/login', async (req, res) => {
             // if password does not match
             if(!isValid){
                 
-                res.status(404).json({message: "Incorrect Email or password"})
+                res.status(404).json({message: "Incorrect Email or Password"})
                 return
             }
 
@@ -79,7 +78,7 @@ router.post('/login', async (req, res) => {
                 res.status(200).json({message: "Logged in successfully", user})
             })
         }else {
-            res.status(404).json({message: 'invalid body passed'})
+            res.status(404).json({message: 'Incorrect Email or Password'})
             return
         }
 

@@ -28,9 +28,8 @@ loginForm.addEventListener('submit', async function(event){
         window.location.href = '/profile' 
     }else {
         // if response was not ok
-        alert('Well something went wrong')
         const json = await response.json()
-        console.log(json)
+        document.getElementById('errMsg').innerHTML = json.message
     }
 
 })
