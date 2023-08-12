@@ -1,7 +1,7 @@
-const loginRoute = require('./login-render')
-const signUpRoute = require('./signup-render')
+const loginRoute = require('./login')
+const signUpRoute = require('./signup')
 const reserveRoute = require('./reservation')
-const homeRoutes = require('./home-render')
+const homeRoutes = require('./homepage')
 const profileRoute = require('./profile')
 const router = require('express').Router()
 
