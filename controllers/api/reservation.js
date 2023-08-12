@@ -3,9 +3,11 @@ const {Reservation} = require('../../model/index');
 const dayjs = require('dayjs')
 
 router.post('/', async (req, res) => {
+    console.log('hit post')
     try {
+        console.log('tried to parse')
         console.log(req.body)
-        const postResponse = Reservation.create({
+        const postResponse = await Reservation.create({
             date: dayjs(req.body.date),
             user_id: req.session.userId,
             party_size: req.body.party_size,
@@ -13,6 +15,7 @@ router.post('/', async (req, res) => {
         })
         res.status(200).json(postResponse)
     } catch (err){
+        console.log('hit 500 error')
         res.status(500).json(err)
     }
 })
