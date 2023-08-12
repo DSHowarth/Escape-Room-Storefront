@@ -9,7 +9,22 @@ router.post('/signup', async (req, res)=>{
     try{
         // checks if the body is valid
         if(req.body.email && req.body.password && req.body.username){
-            // construct a new user
+            // check that username is unique, starting by pulling username info
+            let userNames = await User.findAll({
+                attributes: ['username']
+            })
+            // extract names from sequelize response
+            userNames = userNames.map((user) => {
+                let userRow = user.get({ plain: true});
+                return userRow.username;
+            })
+            //compare to submitted username
+            if (userNames.includes(req.body.username)) {
+                res.status(400).json({message: 'Username already exists'})
+                return;
+            }
+
+            // If username check passed, construct a new user
             const newUser = await User.create({
                 email: req.body.email,
                 username: req.body.username,
@@ -42,7 +57,6 @@ router.post('/login', async (req, res) => {
         
         // checks if the body is valid
         if(req.body.email && req.body.password){
-            console.log('\npassed the if statement\n')
             // checks if the user email is valid
             const user = await User.findOne({
                 where: {
@@ -53,7 +67,7 @@ router.post('/login', async (req, res) => {
             // if user does not exist by the email
             if(!user){
                 
-                res.status(404).json({message: "Incorrect Email or password"})
+                res.status(404).json({message: "Incorrect Email or Password"})
                 return
             }
 
@@ -64,7 +78,7 @@ router.post('/login', async (req, res) => {
             // if password does not match
             if(!isValid){
                 
-                res.status(404).json({message: "Incorrect Email or password"})
+                res.status(404).json({message: "Incorrect Email or Password"})
                 return
             }
 
@@ -79,7 +93,7 @@ router.post('/login', async (req, res) => {
                 res.status(200).json({message: "Logged in successfully", user})
             })
         }else {
-            res.status(404).json({message: 'invalid body passed'})
+            res.status(404).json({message: 'Incorrect Email or Password'})
             return
         }
 

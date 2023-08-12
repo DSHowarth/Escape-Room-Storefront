@@ -1,42 +1,52 @@
 <div class="d-flex justify-content-center align-items-center">
-        <div class="card text-center col-5 col-md-8">
-            
-            <div class="card-header">
-                <h5 class="card-title">Sign Up</h5>
-            </div>
-    
-            <div class="card-body">
-                <form id="signup-form" class="text-start">
-    
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="username" class="form-control" id="username" placeholder="newuser123">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="namd@example.com">
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password">
-                    </div>
+    <div class="card text-center col-5 col-md-8">
+        
+        <div class="card-header">
+            <h5 class="card-title">Sign Up</h5>
+        </div>
 
-                    <div class="mb-3">
-                        <label for="password-confirm" class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" id="password-confirm">
+        <div class="card-body">
+            <form id="signup-form" class="text-start needs-validation" novalidate>
+                <p class="text-danger text-start" id="errMsg"></p>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="username" class="form-control" id="username" placeholder="newuser123">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="namd@example.com">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address
                     </div>
-    
-                    <div class="text-center mb-3 d-grid gap-3">
-                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password">
+                    <div class="invalid-feedback">
+                        Password must be at least 8 characters long.
                     </div>
-    
-                </form>
-    
-                <p class="text-start card-text"><a class="link-offset-2 link-underline link-underline-opacity-0"
-                        href="/login">Already a member? Log In!</a></p>
-            </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="password-confirm" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="password-confirm">
+                    <div class="invalid-feedback">
+                        Passwords must match
+                    </div>
+                </div>
+                
+                <div class="text-center mb-3 d-grid gap-3">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+
+            </form>
+
+            <p class="text-start card-text"><a class="link-offset-2 link-underline link-underline-opacity-0"
+                    href="/login">Already a member? Log In!</a></p>
         </div>
     </div>
+</div>
 
-    <script src="/js/signup.js"></script>
+<script src="/js/signup.js"></script>
