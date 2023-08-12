@@ -8,6 +8,11 @@ const passwordConfirm = document.getElementById('password-confirm')
 // setting event listeners for form
 signupForm.addEventListener('submit', async function(event){
     event.preventDefault()
+
+    if (!emailIn.checkValidity()) {
+        emailIn.classList.remove('is-valid');
+        emailIn.classList.add('is-invalid');
+    }
     // check if the password matches the confirm password
     if(passwordIn.value != passwordConfirm.value){
         console.log('made it into if')
