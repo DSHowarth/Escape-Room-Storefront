@@ -42,8 +42,6 @@ if (partyCountForm){
       resDate = button.parentNode.querySelector('.resDate').innerHTML;
       time = button.innerHTML;
 
-      console.log(resDate);
-      console.log(time);
       modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
 
 
@@ -54,8 +52,6 @@ if (partyCountForm){
     event.preventDefault();
     event.stopPropagation();
 
-    console.log('date in count ' + resDate)
-    console.log('time in count ' + time)
     // confirms the party size input is valid
     if (Number(partyInput.value) && partyInput.value <= 5){
         partyInput.classList.remove('is-invalid')

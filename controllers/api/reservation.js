@@ -3,9 +3,7 @@ const {Reservation} = require('../../model/index');
 const dayjs = require('dayjs')
 
 router.post('/', async (req, res) => {
-    console.log('hit post')
     try {
-        console.log('tried to parse')
         console.log(req.body)
         const postResponse = await Reservation.create({
             date: dayjs(req.body.date),
