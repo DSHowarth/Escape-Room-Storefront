@@ -12,34 +12,48 @@ const login = document.getElementById('resLogin')
 const signUp = document.getElementById('resSignUp')
 
 
-// Dynamically create prompt info from the user's button press
+// only triggers on a 'logged in' state
 if (modalBodyInput){
-resModal.addEventListener('show.bs.modal', event => {
-    const button = event.relatedTarget;
+  // Dynamically create prompt info from the user's button press
+  resModal.addEventListener('show.bs.modal', event => {
+      const button = event.relatedTarget;
 
 
-    //get the time and date
-    const resDate = button.parentNode.querySelector('.resDate').innerHTML;
-    const time = button.innerHTML;
+      //get the time and date
+      const resDate = button.parentNode.querySelector('.resDate').innerHTML;
+      const time = button.innerHTML;
 
 
-    modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
-})
+      modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
+  })
 
 
-// Reservation submission via modal 'confirm' button
-partyCountForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+  // Reservation submission via modal 'confirm' button
+  partyCountForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
 
-    if (Number(partyInput.value) && partyInput.value <= 5){
-        partyInput.classList.remove('is-invalid')
-        partyInput.classList.add('is-valid')
-    
-      }
-      else {
-        partyInput.classList.remove('is-valid')
-        partyInput.classList.add('is-invalid')
-      }
-  }, false)
+      // confirms the party size input is valid
+      if (Number(partyInput.value) && partyInput.value <= 5){
+          partyInput.classList.remove('is-invalid')
+          partyInput.classList.add('is-valid')
+      
+        }
+        //if not valid, let the user know
+        else {
+          partyInput.classList.remove('is-valid')
+          partyInput.classList.add('is-invalid')
+        }
+    }, false)
+}
+
+// only triggers in 'logged out' state
+else {
+  login.addEventListener('click', (event) => {
+    window.location = './login'
+  })
+
+  signUp.addEventListener('click', (event) => {
+    window.location = './signup'
+  })
 }
