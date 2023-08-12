@@ -6,6 +6,7 @@ const {Reservation} = require('../../model')
 router.get('/', async (req, res) => {
     // must render logged in user's reservations
     try{
+        console.log(req.session.userId)
         const reservations = await Reservation.findAll({
             // finds the reservation where it matches user id
             where: {
@@ -13,8 +14,9 @@ router.get('/', async (req, res) => {
                 user_id: req.session.userId
             }
         })
-
+        console.log(reservations)
         const reservationParsed = reservations.map((reserv) => reserv.get({plain: true}))
+        console.log(reservationParsed)
 
         res.render('profile', {reservations: reservationParsed})
     }catch(error){

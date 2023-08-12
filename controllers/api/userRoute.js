@@ -42,6 +42,7 @@ router.post('/login', async (req, res) => {
         console.log(req.body)
         // checks if the body is valid
         if(req.body.email && req.body.password){
+            console.log('\npassed the if statement\n')
             // checks if the user email is valid
             const user = await User.findOne({
                 where: {
@@ -51,15 +52,18 @@ router.post('/login', async (req, res) => {
 
             // if user does not exist by the email
             if(!user){
+                console.log('\nemail is wrong\n')
                 res.status(404).json({message: "Incorrect Email or password"})
                 return
             }
 
             // checks if their password matches
             const isValid = await bcrypt.compare(req.body.password, user.password)
+            console.log(user.password)
 
             // if password does not match
             if(!isValid){
+                console.log('\npassword is wrong\n')
                 res.status(404).json({message: "Incorrect Email or password"})
                 return
             }
