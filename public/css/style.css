@@ -85,45 +85,59 @@ body {
   z-index: 1; /* Place the content above the video */
 }
 
-/* Neon button styles */
+/* ------------------------------------ NEON BUTTON STYLES --------------------------------------*/
 .neon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  border: none;
+  bottom: 20%;
+  right: 10%;
+  width: 100px; /* set a fixed width to ensure a circular shape */
+  height: 100px; /* set a fixed height to ensure a circular shape */
+  /* padding: 10px; */
+  border: 2px solid white;
   border-radius: 50%;
   background-color: transparent;
-  color: black;
+  color: white;
   font-size: 16px;
-  text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  z-index: 2; /* Place the button above the video */
-}
-
-.neon-button:before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  background-color: #00ff00;
-  z-index: -1; /* Place the neon glow below the button */
+  transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s; /* border-color transition */
+  line-height: 50px;
+  background-color: transparent;
+  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white,
+    inset 0 0 10px white, inset 0 0 20px white;
+  border-color: white; /* Change border color on hover */
+  z-index: 2; /* place the button above the video */
 }
 
 /* Neon glow effect */
 .neon-button:hover {
-  background-color: transparent;
-  box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+  border-color: #00ff00; /* Change border color on hover */
+  /* width: 110px;
+  height: 110px;
+  line-height: 110px; */
 }
 
-title {
+.button-text {
+  margin: 0;
+}
+
+.title {
   font-family: "Forma DJR Display", sans-serif;
   font-size: 2.5rem;
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+}
+
+.title-arrow {
+  font-size: 100px;
+  vertical-align: middle;
+  margin-left: 5px;
+  color: white;
 }
 
 /*-------------------------------------------------- MEDIA ----------------------------------------------------*/
