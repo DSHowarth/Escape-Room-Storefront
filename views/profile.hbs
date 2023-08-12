@@ -1,20 +1,58 @@
 {{! profile-section class to set the global styles }}
 <section class="profile-section">
   {{! style content area }}
-  <div class="profile-content">
-    <h2>your reservations</h2>
-    {{#each reservations}}
-    {{!-- id will be needed to cancel reservation --}}
-    <div class="reservation">
-      {{! dynamic reservation date and qr code}}
-      <p>{{date}}</p>
-      <div id="{{id}}">{{qr_code_url}}</div>
+  {{#if resRedirect}}
+  <h1>Your Reservation has been confirmed</h1>
+  {{/if}}
 
-      {{!-- this button will delete reservation using fetch request (front end) --}}
-      <button data-resId="{{id}}" class="cancel-button">cancel</button>
+  <h2>Your Reservations (Click the date to view the QR Code)</h2>
+  <div class="accordion profile-content" id="future-res">
+    {{!-- for each reservation, create a accordion --}}
+    {{#each reservations}}
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion{{id}}"
+          aria-expanded="true" aria-controls="accordion{{id}}">
+          {{date}}
+        </button>
+      </h2>
+      <div id="accordion{{id}}" class="accordion-collapse collapse" data-bs-parent="#future-res">
+        <div class="accordion-body">
+          <h3>Your QR Code</h3>
+          <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+        </div>
+        {{!-- this button will delete reservation using fetch request (front end) --}}
+        <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
+      </div>
+    </div>
+    {{!-- id will be needed to cancel reservation --}}
+    {{/each}}
+  </div>
+<br>
+  {{#if pastReservations}}
+<h2>Your Past Reservations</h2>
+  <div class="accordion" id="past-res">
+    {{!-- for each past reservation, create a accordion --}}
+    {{#each pastReservations}}
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pastAco{{id}}"
+          aria-expanded="true" aria-controls="pastAco{{id}}">
+          {{date}}
+        </button>
+      </h2>
+      <div id="pastAco{{id}}" class="accordion-collapse collapse" data-bs-parent="#past-res">
+        <div class="accordion-body">
+          <strong>This reservation is past the date</strong>
+          <button data-resId="{{id}}" class="delete-button btn btn-danger">Delete</button>
+        </div>
+      </div>
     </div>
     {{/each}}
   </div>
+{{/if}}
+
+
 </section>
 {{!-- scripts for qr code --}}
 <script type="text/javascript" src="/js/source-code/qrcode.js"></script>
