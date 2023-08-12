@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         
 
         const pastReserv = []
-        const futureResrv = []
+        const futureReserv = []
 
         for(let i = 0; i < reservationParsed.length; i++){
             // format the date
@@ -31,13 +31,13 @@ router.get('/', async (req, res) => {
                 pastReserv.push(reservationParsed[i])
             }else {
                 // otherwise push it to future
-                futureResrv.push(reservationParsed[i])
+                futureReserv.push(reservationParsed[i])
             }
         }
 
         res.render('profile', {
             pastReservations: pastReserv,
-            reservations: futureResrv, 
+            reservations: futureReserv, 
             resRedirect: req.session.resRedirect, 
             loggedIn: req.session.loggedIn
         })
