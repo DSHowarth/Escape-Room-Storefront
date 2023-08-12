@@ -23,7 +23,7 @@ resModal.addEventListener('show.bs.modal', event => {
     const time = button.innerHTML;
 
 
-    modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' ' + time + '?';
+    modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
 })
 
 
