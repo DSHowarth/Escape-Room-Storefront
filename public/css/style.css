@@ -17,20 +17,27 @@
   height: auto;
 }
 
-.navbar {
+nav {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.nav-links a {
-  color: black;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  width: 100%;
 }
 
 nav a {
-  font-family: "Quicksand", sans-serif;
+  color: black;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--green); /* change color on hover */
+}
+
+/* Remove underline from navigation links */
+nav a:hover {
+  text-decoration: none;
 }
 
 body {
