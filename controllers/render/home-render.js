@@ -4,6 +4,7 @@ router.get("/", async (req, res) => {
   try {
     res.render("homepage", {
       loggedIn: req.session.loggedIn,
+      isHomepage: true,
     });
   } catch (err) {
     res.status(500).json(err);
