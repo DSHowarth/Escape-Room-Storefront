@@ -11,6 +11,8 @@ for(let i = 0; i < reservIds.length; i++){
 
     // create a qrcode 
     const qrcode = new QRCode(qrCodeEl, {width: 100, height: 100})
-    qrcode.makeCode(qrCodeEl.textContent)
+
+    qrcode.makeCode(qrCodeEl.getAttribute('data-qrCode'))
+
 }
 

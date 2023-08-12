@@ -11,7 +11,7 @@
     <div class="reservation">
       {{! dynamic reservation date and qr code}}
       <p>{{date}}</p>
-      <div id="{{id}}">{{qr_code_url}}</div>
+      <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
 
       {{!-- this button will delete reservation using fetch request (front end) --}}
       <button data-resId="{{id}}" class="cancel-button">cancel</button>
