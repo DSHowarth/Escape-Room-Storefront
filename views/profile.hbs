@@ -3,10 +3,16 @@
   {{! style content area }}
   <div class="profile-content">
     <h2>your reservations</h2>
+    {{#each reservations}}
+    {{!-- id will be needed to cancel reservation --}}
     <div class="reservation">
-      {{! dynamic reservation date }}
-      <p>[{{reservationDate}}]</p>
-      <button class="cancel-button">cancel</button>
+      {{! dynamic reservation date and qr code}}
+      <p>{{date}}</p>
+      <div>{{qr_code_url}}</div>
+
+      {{!-- this button will delete reservation using fetch request (front end) --}}
+      <button data-resId="{{id}}" class="cancel-button">cancel</button>
     </div>
+    {{/each}}
   </div>
 </section>

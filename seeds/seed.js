@@ -17,6 +17,11 @@ const userData = [
         username: "GElena",
         email: "Elenasrealemail@gmail.com",
         password: "password123456"
+    },
+    {
+        username: "test",
+        email: "test@email.com",
+        password: "password1234"
     }
 ]
 
@@ -25,13 +30,30 @@ const reservationData = [
         date: dayjs(),
         user_id: 1,
         party_size: 5
+    },
+    {
+        date: dayjs(),
+        user_id: 2,
+        party_size: 5
+    },
+    {
+        date: dayjs(),
+        user_id: 3,
+        party_size: 5
+    },
+    {
+        date: dayjs(),
+        user_id: 4,
+        party_size: 5
     }
 
 ]
 
 const seedUsers = async () => {
     try{
-    await User.bulkCreate(userData)
+    await User.bulkCreate(userData, {
+        individualHooks: true
+    })
     console.log(await User.findAll())
     } catch(err) {
         console.log(err)
