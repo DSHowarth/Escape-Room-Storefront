@@ -13,8 +13,8 @@ const signUp = document.getElementById('resSignUp')
 
 
 // Dynamically create prompt info from the user's button press
+if (modalBodyInput){
 resModal.addEventListener('show.bs.modal', event => {
-    console.log('into dynamic function')
     const button = event.relatedTarget;
 
 
@@ -25,6 +25,7 @@ resModal.addEventListener('show.bs.modal', event => {
 
     modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' ' + time + '?';
 })
+
 
 // Reservation submission via modal 'confirm' button
 partyCountForm.addEventListener('submit', (event) => {
@@ -41,3 +42,4 @@ partyCountForm.addEventListener('submit', (event) => {
         partyInput.classList.add('is-invalid')
       }
   }, false)
+}
