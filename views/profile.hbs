@@ -4,7 +4,8 @@
   <div class="profile-content">
     <h2>your reservations</h2>
     {{#each reservations}}
-    <div class="reservation">
+    {{!-- id will be needed to cancel reservation --}}
+    <div id="{{id}}" class="reservation">
       {{! dynamic reservation date and qr code}}
       <p>{{date}}</p>
       <div>{{qr_code_url}}</div>
