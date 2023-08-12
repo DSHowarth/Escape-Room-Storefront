@@ -16,3 +16,31 @@ for(let i = 0; i < reservIds.length; i++){
 
 }
 
+// triggered when the cancel button is hit
+const handleCancel = async function(event){
+    // retrieves reservation id from the data attr
+    const resId = event.target.getAttribute('data-resId')
+
+    try{
+        // sends a delete request to the server
+        const response = await fetch(`/api/reservations/${resId}`, {
+            method: 'DELETE'
+        })
+
+        if(response.ok){
+
+            // replaces accordion text to say this reservation has been canceled
+            const accordionBody = document.getElementById(`accordion${resId}`)
+            accordionBody.innerHTML = "<h3>This Reservation has been canceled</h3>"
+            
+        }else {
+            const json = await response.json()
+            console.log(json)
+        }
+
+    }catch(error){
+        console.log("Error while trying to fetch", error)
+    }
+
+
+}
