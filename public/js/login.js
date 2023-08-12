@@ -1,4 +1,4 @@
-// element selectors for 
+// element selectors for login form
 const loginForm = document.getElementById('login-form')
 const emailIn = document.getElementById('email')
 const passwordIn = document.getElementById('password')
