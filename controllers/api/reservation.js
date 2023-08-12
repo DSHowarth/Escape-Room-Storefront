@@ -20,9 +20,27 @@ router.post('/', async (req, res) => {
             req.session.resRedirect = true
             res.status(200).json(postResponse)
         })
+        
 
     } catch (err){
         res.status(500).json(err)
+    }
+})
+
+// deleting a reservation (cancel)
+router.delete('/:id', async (req, res) => {
+    try{
+        // deletes the data where the id is equal to the param
+        const delResponse = await Reservation.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json({message: "Successfully Deleted Reservation", delResponse})
+
+    }catch(error){
+        res.status(500).json(error)
     }
 })
 
