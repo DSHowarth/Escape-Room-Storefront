@@ -8,11 +8,18 @@ const passwordConfirm = document.getElementById('password-confirm')
 // setting event listeners for form
 signupForm.addEventListener('submit', async function(event){
     event.preventDefault()
-
     // check if the password matches the confirm password
     if(passwordIn.value != passwordConfirm.value){
+        console.log('made it into if')
         // end the function if they don't match
-        alert('your password must match with confirm')
+        passwordConfirm.classList.remove('is-valid');
+        passwordConfirm.classList.add('is-invalid');
+        return;
+    }
+    else if (passwordIn.value.length < 8) {
+        console.log('made it into else if')
+        passwordIn.classList.remove('is-valid');
+        passwordIn.classList.add('is-invalid');
         return;
     }
 
@@ -37,9 +44,8 @@ signupForm.addEventListener('submit', async function(event){
         // redirect the user to home page
         window.location.href = '/'
     }else {
-        alert('well something went wrong')
         const json = await response.json()
-        console.log(json)
+        document.getElementById('errMsg').innerHTML = json.message
     }
 
 })
