@@ -10,12 +10,12 @@ router.post('/', async (req, res) => {
             party_size: req.body.party_size,
             qr_code_url: "https://www.youtube.com/watch?v=0H25ve3qts4"
         })
-        console.log('redirect bool before creation is '+ req.session.resRedirect)
+        
         await req.session.save(() => {
             req.session.resRedirect = true
             res.status(200).json(postResponse)
         })
-        console.log('redirect bool after creation is ' + req.session.resRedirect)
+        
 
     } catch (err){
         console.log('hit 500 error')
@@ -23,7 +23,22 @@ router.post('/', async (req, res) => {
     }
 })
 
-// deleting a reservation (can)
-router.delete('/:id', async (req, res))
+// deleting a reservation (cancel)
+router.delete('/:id', async (req, res) => {
+    console.log('delete route hit')
+    try{
+        // deletes the data where the id is equal to the param
+        const delResponse = await Reservation.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+
+        res.status(200).json({message: "Successfully Deleted Reservation", delResponse})
+
+    }catch(error){
+        res.status(500).json(error)
+    }
+})
 
 module.exports = router
