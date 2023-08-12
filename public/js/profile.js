@@ -7,6 +7,9 @@ const reservIds = cancelBtns.map((cancelBtn) => cancelBtn.getAttribute('data-res
 // selects all cancel Buttons
 const cancelBtnEls = document.querySelectorAll('.cancel-button')
 
+// selects all delete buttons
+const delButtons = document.querySelectorAll('.delete-button')
+
 // for each reservation create a qr code
 for(let i = 0; i < reservIds.length; i++){
     // selects the div with qr code
@@ -61,8 +64,8 @@ const handleDelete = async function(event){
         if(response.ok){
 
             // replaces accordion text to say this reservation has been canceled
-            const accordionBody = document.getElementById(`accordion${resId}`)
-            accordionBody.innerHTML = "<h4 class='text-danger'>This Reservation has been canceled</h4>"
+            const accordionBody = document.getElementById(`pastAco${resId}`)
+            accordionBody.innerHTML = "<h4 class='text-danger'>This Reservation has been deleted</h4>"
             
         }else {
             const json = await response.json()
@@ -78,4 +81,9 @@ const handleDelete = async function(event){
 // add event listener to each buttons
 cancelBtnEls.forEach(button => {
     button.addEventListener('click', handleCancel)
+})
+
+// add event listener to each delete buttons
+delButtons.forEach(button => {
+    button.addEventListener('click', handleDelete)
 })

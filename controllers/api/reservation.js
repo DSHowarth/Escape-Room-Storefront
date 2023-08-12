@@ -29,7 +29,6 @@ router.post('/', async (req, res) => {
 
 // deleting a reservation (cancel)
 router.delete('/:id', async (req, res) => {
-    console.log('delete route hit')
     try{
         // deletes the data where the id is equal to the param
         const delResponse = await Reservation.destroy({
