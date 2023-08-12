@@ -39,7 +39,7 @@ router.post('/signup', async (req, res)=>{
 // user logs in
 router.post('/login', async (req, res) => {
     try{
-        console.log(req.body)
+        
         // checks if the body is valid
         if(req.body.email && req.body.password){
             console.log('\npassed the if statement\n')
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
 
             // if user does not exist by the email
             if(!user){
-                console.log('\nemail is wrong\n')
+                
                 res.status(404).json({message: "Incorrect Email or password"})
                 return
             }
@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
 
             // if password does not match
             if(!isValid){
-                console.log('\npassword is wrong\n')
+                
                 res.status(404).json({message: "Incorrect Email or password"})
                 return
             }
