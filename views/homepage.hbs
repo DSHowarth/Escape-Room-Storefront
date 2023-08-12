@@ -1,10 +1,17 @@
-<video autoplay muted loop id="background-video">
-  <source
-    src="https://drive.google.com/file/d/1HWwdMmt0AkyJVgJfdZ-OjvIhmnIwSpjD/view?usp=sharing"
-    type="video/mp4"
-  />
-  Your browser does not support the video tag.
-</video>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/cloudinary-video-player/dist/cld-video-player.min.css"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/cloudinary-video-player/dist/cld-video-player.min.js"
+></script>
+
+<video id="player" class="cld-video-player cld-fluid" muted controls></video>
+
+<script>
+  const player = cloudinary.videoPlayer("player", { cloud_name: "demo" });
+  player.source("homepage_video");
+</script>
 
 <section class="home-section">
   <div class="home-content">
@@ -16,6 +23,3 @@
 </section>
 
 {{! <script src="/public/js/homepage.js"></script> }}
-
-{{! white logo }}
-{{! https://drive.google.com/file/d/1as7O3JZ1P8H_mq-iU-iCAOd6V0y_Xr27/view?usp=sharing }}
