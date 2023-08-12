@@ -25,7 +25,7 @@
     {{/each}}
   </div>
 
-  <h2>your reservations</h2>
+  <h2>Your Reservations (Click the date to view the QR Code)</h2>
   <div class="accordion profile-content" id="future-res">
     {{!-- for each reservation, create a accordion --}}
     {{#each reservations}}
@@ -36,7 +36,7 @@
           {{date}}
         </button>
       </h2>
-      <div id="accordion{{id}}" class="accordion-collapse collapse show" data-bs-parent="#future-res">
+      <div id="accordion{{id}}" class="accordion-collapse collapse" data-bs-parent="#future-res">
         <div class="accordion-body">
           <h3>Your QR Code</h3>
           <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
