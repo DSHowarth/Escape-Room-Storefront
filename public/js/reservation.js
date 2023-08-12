@@ -5,26 +5,12 @@ const modalBody = document.getElementById('modalBody')
 const partyCountForm = document.getElementById('partyCountForm')
 const confirm = document.getElementById('resConfirm')
 const modalBodyInput = document.getElementById('resDateTime');
+const partyInput = document.getElementById('partyCount')
 
 // element pointers for 'not logged in' state
 const login = document.getElementById('resLogin')
 const signUp = document.getElementById('resSignUp')
 
-// Reservation submission via modal 'confirm' button
-partyCountForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    if (Number(myInput.value) && myInput.value <= 5){
-        myInput.classList.remove('is-invalid')
-        myInput.classList.add('is-valid')
-    
-      }
-      else {
-        myInput.classList.remove('is-valid')
-        myInput.classList.add('is-invalid')
-      }
-  }, false)
 
 // Dynamically create prompt info from the user's button press
 resModal.addEventListener('show.bs.modal', event => {
@@ -36,8 +22,22 @@ resModal.addEventListener('show.bs.modal', event => {
     const resDate = button.parentNode.querySelector('.resDate').innerHTML;
     const time = button.innerHTML;
 
-    console.log('time is ' + time)
-    console.log('resDat is ' + resDate)
 
     modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' ' + time + '?';
 })
+
+// Reservation submission via modal 'confirm' button
+partyCountForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (Number(partyInput.value) && partyInput.value <= 5){
+        partyInput.classList.remove('is-invalid')
+        partyInput.classList.add('is-valid')
+    
+      }
+      else {
+        partyInput.classList.remove('is-valid')
+        partyInput.classList.add('is-invalid')
+      }
+  }, false)
