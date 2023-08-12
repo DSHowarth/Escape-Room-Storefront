@@ -6,7 +6,7 @@ const router = require('express').Router()
 
 router.use('/login', loginRoute)
 router.use('/signup', signUpRoute)
-router.use('/reservation', reserveRoute)
+router.use('/reservations', reserveRoute)
 router.use("/", homeRoutes);
 
 module.exports = router;
