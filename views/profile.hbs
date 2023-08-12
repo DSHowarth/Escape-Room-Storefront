@@ -4,20 +4,53 @@
   {{#if resRedirect}}
   <h1>Your Reservation has been confirmed</h1>
   {{/if}}
-  <div class="profile-content">
-    <h2>your reservations</h2>
-    {{#each reservations}}
-    {{!-- id will be needed to cancel reservation --}}
-    <div class="reservation">
-      {{! dynamic reservation date and qr code}}
-      <p>{{date}}</p>
-      <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
 
-      {{!-- this button will delete reservation using fetch request (front end) --}}
-      <button data-resId="{{id}}" class="cancel-button">cancel</button>
+  <div class="accordion" id="past-res">
+    {{!-- for each past reservation, create a accordion --}}
+    {{#each pastReservation}}
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          {{date}}
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This reservation is past the date</strong>
+          <button data-resId="{{id}}" class="delete-button btn btn-danger">Delete</button>
+        </div>
+      </div>
     </div>
     {{/each}}
   </div>
+
+  <h2>your reservations</h2>
+  <div class="accordion profile-content" id="future-res">
+    {{!-- for each reservation, create a accordion --}}
+    {{#each reservations}}
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion{{id}}"
+          aria-expanded="true" aria-controls="accordion{{id}}">
+          {{date}}
+        </button>
+      </h2>
+      <div id="accordion{{id}}" class="accordion-collapse collapse show" data-bs-parent="#future-res">
+        <div class="accordion-body">
+          <h3>Your QR Code</h3>
+          <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+        </div>
+        {{!-- this button will delete reservation using fetch request (front end) --}}
+        <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
+      </div>
+    </div>
+    {{!-- id will be needed to cancel reservation --}}
+
+    {{/each}}
+  </div>
+
+
 </section>
 {{!-- scripts for qr code --}}
 <script type="text/javascript" src="/js/source-code/qrcode.js"></script>
