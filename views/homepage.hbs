@@ -1,8 +1,30 @@
-{{! CSS classes }}
-<section class="home-section"style="background-image: url(''); background-size: cover;">
-</section>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/cloudinary-video-player/dist/cld-video-player.min.css"
+/>
+<script
+  src="https://cdn.jsdelivr.net/npm/cloudinary-video-player/dist/cld-video-player.min.js"
+></script>
+
+<video id="player" class="cld-video-player cld-fluid" muted controls></video>
+
+<script>
+  const player = cloudinary.videoPlayer("player", { cloud_name: "dfecvj7s4" });
+  player.source("escape-room-video_hdaybz");
+</script>
+
   <div class="home-content">
-    <h2>JUNGLE ESCAPE ROOM</h2>
+    <h1 class="title">JUNGLE</h1>
+    <h1 class="title">ESCAPE</h1>
+    <h1 class="title">ROOM <span class="title-arrow"></span></h1>
   </div>
-  <a href="/login" class="neon-button">login</a>
+    <a href="/login" class="neon-button">login</a>
 </section>
+
+<script src="/public/js/homepage.js"></script>
+
+{{! black logo }}
+{{! https://res.cloudinary.com/dfecvj7s4/image/upload/v1691872991/jungle-escape-room-logo-b_umxaok.png }}
+
+{{! white logo }}
+{{! https://res.cloudinary.com/dfecvj7s4/image/upload/v1691873020/jungle-escape-room-logo-w_fmfxni.png }}
