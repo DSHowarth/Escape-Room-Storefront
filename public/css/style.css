@@ -55,6 +55,10 @@ body {
   color: white;
 }
 
+.homepage nav a:hover {
+  color: var(--green);
+}
+
 #player {
   position: fixed;
   top: 0;
