@@ -1,4 +1,4 @@
-// element selectors for 
+// element selectors for login form
 const loginForm = document.getElementById('login-form')
 const emailIn = document.getElementById('email')
 const passwordIn = document.getElementById('password')
@@ -24,13 +24,12 @@ loginForm.addEventListener('submit', async function(event){
 
     // if the response was 200 (ok)
     if(response.ok){
-        // redirects the user to either to homepage, or to the profile page
-        window.location.href = '/' // to homepage
+        // redirects the user to their profile page
+        window.location.href = '/profile' 
     }else {
         // if response was not ok
-        alert('Well something went wrong')
         const json = await response.json()
-        console.log(json)
+        document.getElementById('errMsg').innerHTML = json.message
     }
 
 })

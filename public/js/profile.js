@@ -47,6 +47,34 @@ const handleCancel = async function(event){
 
 }
 
+// triggered when delete button is hit
+const handleDelete = async function(event){
+    // retrieves reservation id from the data attr
+    const resId = event.target.getAttribute('data-resId')
+
+    try{
+        // sends a delete request to the server
+        const response = await fetch(`/api/reservations/${resId}`, {
+            method: 'DELETE'
+        })
+
+        if(response.ok){
+
+            // replaces accordion text to say this reservation has been canceled
+            const accordionBody = document.getElementById(`accordion${resId}`)
+            accordionBody.innerHTML = "<h4 class='text-danger'>This Reservation has been canceled</h4>"
+            
+        }else {
+            const json = await response.json()
+            console.log(json)
+        }
+
+    }catch(error){
+        console.log("Error while trying to fetch", error)
+    }
+
+}
+
 // add event listener to each buttons
 cancelBtnEls.forEach(button => {
     button.addEventListener('click', handleCancel)

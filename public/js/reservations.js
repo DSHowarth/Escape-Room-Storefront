@@ -13,23 +13,26 @@ const signUp = document.getElementById('resSignUp')
 
 const confirmReservation = async function (resDate, resTime) {
   try{
+    // send a new reservation to database
     const postResponse = await fetch('/api/reservations', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
+      // body has to be stringified as it will automatically be parsed by our middleware
       body: JSON.stringify({
         date: resDate + ' ' + resTime,
         party_size: partyInput.value
       })
     })
+    // if successful, redirect to profile page
     window.location = './profile'
-    //TODO: Redirect to profile page
   } catch {
     modalBody.innerHTML += `<p class="text-danger"> An unexpected error has occured. Please try again later.</p>`
   }
 }
 
+// declare global variables so different event listers can assign and use them
 let resDate;
 let time;
 
