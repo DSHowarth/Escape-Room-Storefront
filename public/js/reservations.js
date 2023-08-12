@@ -23,6 +23,7 @@ const confirmReservation = async function (resDate, resTime) {
         party_size: partyInput.value
       })
     })
+    window.location = './profile'
     //TODO: Redirect to profile page
   } catch {
     modalBody.innerHTML += `<p class="text-danger"> An unexpected error has occured. Please try again later.</p>`
@@ -56,7 +57,11 @@ if (partyCountForm){
     if (Number(partyInput.value) && partyInput.value <= 5){
         partyInput.classList.remove('is-invalid')
         partyInput.classList.add('is-valid')
-        confirmReservation(resDate, time)
+        try{
+          confirmReservation(resDate, time);
+        } catch (err) {
+          console.log(err)
+        }
       }
       //if not valid, let the user know
       else {

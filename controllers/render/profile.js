@@ -16,9 +16,12 @@ router.get('/', async (req, res) => {
         })
        
         const reservationParsed = reservations.map((reserv) => reserv.get({plain: true}))
-       
-
-        res.render('profile', {reservations: reservationParsed})
+        
+        console.log('redirect bool before use is ' + req.session.resRedirect)
+        await res.render('profile', {reservations: reservationParsed, resRedirect: req.session.resRedirect})
+        await req.session.save(() => {
+            req.session.resRedirect = false
+        })
     }catch(error){
         res.status(500).json({message: "Server Error while getting reservation"})
     }
