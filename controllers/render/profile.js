@@ -16,9 +16,15 @@ router.get('/', async (req, res) => {
         })
        
         const reservationParsed = reservations.map((reserv) => reserv.get({plain: true}))
-       
-
-        res.render('profile', {reservations: reservationParsed})
+        
+        res.render('profile', {
+            reservations: reservationParsed, 
+            resRedirect: req.session.resRedirect, 
+            loggedIn: req.session.loggedIn
+        })
+        await req.session.save(() => {
+            req.session.resRedirect = false
+        })
     }catch(error){
         res.status(500).json({message: "Server Error while getting reservation"})
     }

@@ -18,51 +18,58 @@ const confirmReservation = async function (resDate, resTime) {
       headers: {
         "Content-Type": "application/json"
       },
-      body: {
+      body: JSON.stringify({
         date: resDate + ' ' + resTime,
         party_size: partyInput.value
-      }
+      })
     })
+    window.location = './profile'
     //TODO: Redirect to profile page
   } catch {
     modalBody.innerHTML += `<p class="text-danger"> An unexpected error has occured. Please try again later.</p>`
   }
 }
 
+let resDate;
+let time;
 
 // only triggers on a 'logged in' state
-if (modalBodyInput){
+if (partyCountForm){
   // Dynamically create prompt info from the user's button press
   resModal.addEventListener('show.bs.modal', event => {
       const button = event.relatedTarget;
 
-
       //get the time and date
-      const resDate = button.parentNode.querySelector('.resDate').innerHTML;
-      const time = button.innerHTML;
-
+      resDate = button.parentNode.querySelector('.resDate').innerHTML;
+      time = button.innerHTML;
 
       modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
+
+
+
   })
-
-
   // Reservation submission via modal 'confirm' button
   partyCountForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+    event.stopPropagation();
 
-      // confirms the party size input is valid
-      if (Number(partyInput.value) && partyInput.value <= 5){
-          partyInput.classList.remove('is-invalid')
-          partyInput.classList.add('is-valid')
-          confirmReservation(resDate, time)
+    // confirms the party size input is valid
+    if (Number(partyInput.value) && partyInput.value <= 5){
+        partyInput.classList.remove('is-invalid')
+        partyInput.classList.add('is-valid')
+        try{
+          confirmReservation(resDate, time);
+        } catch (err) {
+          console.log(err)
         }
-        //if not valid, let the user know
-        else {
-          partyInput.classList.remove('is-valid')
-          partyInput.classList.add('is-invalid')
-        }
-    }, false)
+      }
+      //if not valid, let the user know
+      else {
+        partyInput.classList.remove('is-valid')
+        partyInput.classList.add('is-invalid')
+      }
+  }, false)
+
 }
 
 // only triggers in 'logged out' state
