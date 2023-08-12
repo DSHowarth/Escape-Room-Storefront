@@ -36,15 +36,12 @@ if (modalBodyInput){
   resModal.addEventListener('show.bs.modal', event => {
       const button = event.relatedTarget;
 
-
       //get the time and date
       const resDate = button.parentNode.querySelector('.resDate').innerHTML;
       const time = button.innerHTML;
-
-
+      
       modalBodyInput.innerHTML = 'Book a reservation for ' + resDate + ' @ ' + time + '?';
   })
-
 
   // Reservation submission via modal 'confirm' button
   partyCountForm.addEventListener('submit', (event) => {
