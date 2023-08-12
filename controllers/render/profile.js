@@ -17,8 +17,11 @@ router.get('/', async (req, res) => {
        
         const reservationParsed = reservations.map((reserv) => reserv.get({plain: true}))
         
-        console.log('redirect bool before use is ' + req.session.resRedirect)
-        await res.render('profile', {reservations: reservationParsed, resRedirect: req.session.resRedirect})
+        res.render('profile', {
+            reservations: reservationParsed, 
+            resRedirect: req.session.resRedirect, 
+            loggedIn: req.session.loggedIn
+        })
         await req.session.save(() => {
             req.session.resRedirect = false
         })
