@@ -11,6 +11,24 @@ const partyInput = document.getElementById('partyCount')
 const login = document.getElementById('resLogin')
 const signUp = document.getElementById('resSignUp')
 
+const confirmReservation = async function (resDate, resTime) {
+  try{
+    const postResponse = await fetch('/api/reservations', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: {
+        date: resDate + ' ' + resTime,
+        party_size: partyInput.value
+      }
+    })
+    
+  } catch {
+    modalBody.innerHTML += `<p class="text-danger"> An unexpected error has occured. Please try again later.</p>`
+  }
+}
+
 
 // only triggers on a 'logged in' state
 if (modalBodyInput){
@@ -37,7 +55,7 @@ if (modalBodyInput){
       if (Number(partyInput.value) && partyInput.value <= 5){
           partyInput.classList.remove('is-invalid')
           partyInput.classList.add('is-valid')
-      
+          confirmReservation()
         }
         //if not valid, let the user know
         else {
