@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 
         for(let i = 0; i < reservationParsed.length; i++){
             // format the date
-            reservationParsed[i].date = dayjs(reservationParsed[i].date).format('dddd, MMMM D, YYYY h:mm')
+            reservationParsed[i].date = dayjs(reservationParsed[i].date).format('dddd, MMMM D, YYYY h:mm a')
             // if the date is before the current day
             if( dayjs(reservationParsed[i].date).isBefore(dayjs()) ){
                 // push it to past
