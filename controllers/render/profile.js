@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Reservation} = require('../../model')
+const dayjs = require('dayjs')
 // end point with /profile
 
 // renders profile page
@@ -17,8 +18,26 @@ router.get('/', async (req, res) => {
        
         const reservationParsed = reservations.map((reserv) => reserv.get({plain: true}))
         
+
+        const pastReserv = []
+        const futureResrv = []
+
+        for(let i = 0; i < reservationParsed.length; i++){
+            // format the date
+            reservationParsed[i].date = dayjs(reservationParsed[i].date).format('dddd, MMMM D, YYYY h:mm')
+            // if the date is before the current day
+            if( dayjs(reservationParsed[i].date).isBefore(dayjs()) ){
+                // push it to past
+                pastReserv.push(reservationParsed[i])
+            }else {
+                // otherwise push it to future
+                futureResrv.push(reservationParsed[i])
+            }
+        }
+
         res.render('profile', {
-            reservations: reservationParsed, 
+            pastReservations: pastReserv,
+            reservations: futureResrv, 
             resRedirect: req.session.resRedirect, 
             loggedIn: req.session.loggedIn
         })

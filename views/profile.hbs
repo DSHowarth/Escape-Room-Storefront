@@ -4,10 +4,11 @@
   {{#if resRedirect}}
   <h1>Your Reservation has been confirmed</h1>
   {{/if}}
-
+{{#if pastReservations}}
+<h2>Your Past Reservations</h2>
   <div class="accordion" id="past-res">
     {{!-- for each past reservation, create a accordion --}}
-    {{#each pastReservation}}
+    {{#each pastReservations}}
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -24,7 +25,7 @@
     </div>
     {{/each}}
   </div>
-
+{{/if}}
   <h2>Your Reservations (Click the date to view the QR Code)</h2>
   <div class="accordion profile-content" id="future-res">
     {{!-- for each reservation, create a accordion --}}

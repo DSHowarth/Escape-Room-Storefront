@@ -27,22 +27,22 @@ const userData = [
 
 const reservationData = [
     {
-        date: dayjs(),
+        date: dayjs("2020-03-01"),
         user_id: 1,
         party_size: 5
     },
     {
-        date: dayjs(),
+        date: dayjs("2020-03-01"),
         user_id: 2,
         party_size: 5
     },
     {
-        date: dayjs(),
+        date: dayjs("2020-03-01"),
         user_id: 3,
         party_size: 5
     },
     {
-        date: dayjs(),
+        date: dayjs("2020-03-01"),
         user_id: 4,
         party_size: 5
     }
