@@ -153,3 +153,50 @@ body {
     font-size: 1.8rem;
   }
 }
+
+@media screen and (min-width: 360px) and (max-width: 740px) {
+  /* Add your styles here */
+  /* For example, you can target specific elements or apply general styles */
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  /* Example: Center the navigation links */
+  nav {
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  nav a {
+    display: none; /* hide the links in the navigation */
+  }
+
+  /* adjust the button size for smaller screens */
+  .neon-button {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 4px 0;
+}
+.mobile-menu-dropdown {
+  display: none; /* hide the dropdown by default */
+}
+/* mobile menu icon styles */
+.mobile-menu-icon {
+  display: none; /* hide the icon by default on larger screens */
+  cursor: pointer;
+
+  .mobile-menu-icon.clicked ~ .mobile-menu-dropdown {
+    display: block;
+  }
+
+  .mobile-menu-icon {
+    display: block; /* show the icon for smaller screens */
+  }
+}
