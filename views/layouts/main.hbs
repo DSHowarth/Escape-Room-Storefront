@@ -31,15 +31,19 @@
   <body>
      <div class="container-fluid">
     <header class="d-flex justify-content-between align-items-center p-2">
+      {{#unless isHomepage}}
       <h1 class="m-0">
         <a href="/">
           <img
-            src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691872991/jungle-escape-room-logo-b_umxaok.png"
+            src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691958295/escape-room-adventure-logo_wzo7or.png"
             alt="Logo"
             class="logo"
           />
         </a>
       </h1>
+       {{/unless}}
+
+
       {{!-- mobile menu --}}
        <div class="mobile-menu-icon" id="mobileMenuIcon">
     <div class="bar"></div>
