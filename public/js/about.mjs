@@ -11,9 +11,6 @@ const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true }); // Us
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 renderer.setClearColor(0x000000, 0);
 
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
 // const controls = new OrbitControls(camera, renderer.domElement);
 // controls.update();
 
@@ -22,21 +19,11 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.75); // White light with intensity
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0x00ff00, 1); // White directional light
-directionalLight.position.set(1, 1, 3); // Set the direction of the light
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // White directional light
+directionalLight.position.set(1, 1, 1); // Set the direction of the light
 
-directionalLight.castShadow = true;
-directionalLight.shadow.mapSize.width = 1024;
-directionalLight.shadow.mapSize.height = 1024;
-directionalLight.shadow.camera.near = 0.5;
-directionalLight.shadow.camera.far = 100;
 
 scene.add(directionalLight);
-
-const anotherlight = new THREE.DirectionalLight(0xffffff, 5); // White directional light
-anotherlight.position.set(1, 1, 1); // Set the direction of the light
-
-scene.add(anotherlight)
 
 const loader = new GLTFLoader();
 
@@ -46,15 +33,11 @@ loader.load( 'treasure_chest.glb', function ( gltf ) {
 
 	model = gltf
 
-	gltf.scene.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-            child.castShadow = true;
-        }
-    });
-
-	
-
 	scene.add( gltf.scene );
+
+	const pointLight = new THREE.PointLight(0x00ff00, 50, 100); 
+    pointLight.position.set(1, 8, 1); // Set light's position to match chest's position
+    scene.add(pointLight);
 
 } );
 
