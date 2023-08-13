@@ -106,8 +106,8 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s; /* border-color transition */
   line-height: 50px;
   background-color: transparent;
-  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white,
-    inset 0 0 10px white, inset 0 0 20px white;
+  box-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white, inset 0 0 5px white,
+    inset 0 0 10px white;
   border-color: white; /* Change border color on hover */
   z-index: 2; /* place the button above the video */
 }
@@ -134,11 +134,22 @@ body {
   color: white;
 }
 
-.title-arrow {
-  font-size: 100px;
-  vertical-align: middle;
-  margin-left: 5px;
-  color: white;
+.room-arrow {
+  margin-right: 20px;
 }
-
 /*-------------------------------------------------- MEDIA ----------------------------------------------------*/
+
+@media (max-width: 768px) {
+  .neon-button {
+    bottom: 10%;
+    right: 5%;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+}
