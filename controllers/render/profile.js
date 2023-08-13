@@ -1,10 +1,11 @@
 const router = require('express').Router()
 const {Reservation} = require('../../model')
 const dayjs = require('dayjs')
+const withAuth = require('../../utils/auth')
 // end point with /profile
 
 // renders profile page
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     // must render logged in user's reservations
     try{
        
