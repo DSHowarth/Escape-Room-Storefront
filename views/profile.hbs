@@ -20,6 +20,10 @@
         <div class="accordion-body">
           <h3>Your QR Code</h3>
           <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+          <p>
+            For a more immersive experience, no staff will be there to greet you before your attempt.
+            When you arrive, present this QR code to the scanner at the door. 
+          </p>
         </div>
         {{!-- this button will delete reservation using fetch request (front end) --}}
         <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
