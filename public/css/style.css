@@ -392,6 +392,12 @@ body {
 /*-------------------------------------------------- MEDIA ----------------------------------------------------*/
 
 @media (max-width: 768px) {
+}
+
+@media screen and (min-width: 360px) and (max-width: 740px) {
+  body {
+    font-size: 14px;
+  }
   .neon-button {
     bottom: 10%;
     right: 5%;
@@ -409,12 +415,6 @@ body {
   .title {
     font-size: 1.8rem;
   }
-}
-
-@media screen and (min-width: 360px) and (max-width: 740px) {
-  body {
-    font-size: 14px;
-  }
 
   .logo {
     max-width: 50px;
@@ -424,9 +424,9 @@ body {
     justify-content: space-between;
     padding: 10px 0;
   }
-  nav a {
+  /* nav a {
     display: none; /* hide the links in the navigation */
-  }
+  /* } */
 
   /* adjust the button size for smaller screens */
   .neon-button {
