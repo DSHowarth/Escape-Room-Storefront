@@ -69,36 +69,48 @@ body {
   top: 50%;
   left: 50%;
   /* center the logo by moving it back 50% of its own width and height in both directions */
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: top left;
+  animation: tilt 2s ease-in-out 5s forwards;
 }
 
-.monkey-cup-logo:hover {
-  filter: invert(0%);
-  animation: wave 0.5s ease infinite; /* the wave animation on hover */
-}
-
-/* custom animation */
-@keyframes wave {
-  /* keyframe steps 0%, 25%, 50%, 75%, 100% */
+/* tilt animation */
+@keyframes tilt {
   0% {
-    /* sets the initial position of the logo, without any horizontal movement */
-    transform: translateX(0);
-  }
-  25% {
-    /* creates a gentle side-to-side movement by transalating the logo horizontally by 5px in both directions */
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  75% {
-    transform: translateX(-5px);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    /* returns the logo to its original horizontal position */
-    transform: translateX(0);
+    transform: translate(-50%, -50%) rotate(20deg);
   }
 }
+
+/* .monkey-cup-logo:hover {
+  filter: invert(0%);
+  animation: wave 0.5s ease infinite; /* the wave animation on hover */
+/* } */
+
+/* custom animation */
+/* @keyframes wave {
+  /* keyframe steps 0%, 25%, 50%, 75%, 100% */
+/* 0% { */
+/* sets the initial position of the logo, without any horizontal movement */
+/* transform: translateX(0); */
+/* } */
+/* 25% { */
+/* creates a gentle side-to-side movement by transalating the logo horizontally by 5px in both directions */
+/* transform: translateX(-5px); */
+/* } */
+/* 50% { */
+/* transform: translateX(5px); */
+/* } */
+/* 75% { */
+/* transform: translateX(-5px); */
+/* } */
+/* 100% { */
+/* returns the logo to its original horizontal position */
+/* transform: translateX(0); */
+/* } */
+/* } */
 
 .logo-container {
   position: relative;
@@ -195,6 +207,88 @@ body {
 .room-arrow {
   margin-right: 20px;
 }
+
+/*-------------------------------------------------- RESERVATIONS----------------------------------------------------*/
+
+.resTitle {
+  margin-bottom: 80px;
+  text-align: center;
+  /* border-bottom: 2px dashed var(--grey);
+  padding-bottom: 50px; */
+}
+
+.calendarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.resDate {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-dark {
+  margin: 5px;
+  padding: 15px 50px;
+  background-color: var(--green);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-dark:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.modal-dialog {
+  max-width: 400px;
+}
+
+.modal-title {
+  font-size: 20px;
+}
+
+.modal-body {
+  font-size: 16px;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+.btn-secondary {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: var(--green);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
 /*-------------------------------------------------- MEDIA ----------------------------------------------------*/
 
 @media (max-width: 768px) {

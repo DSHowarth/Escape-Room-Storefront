@@ -1,65 +1,108 @@
 <body class="container">
-    <h1> Reservations are made on a first come, first serve basis. Please select a time and date below to reserve now:</h1>
-    <div>
-        {{!-- Create a div for each day, and create a button for every available time slot that day --}}
-        {{#each days}}
-        <div>
-           <h5 class="resDate">{{date}}</h5>
-           {{#each avail_times}}
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#resModal" data-bs-whatever="{{days.date}}">{{this}}</button>
-           {{/each}}
-        </div>
+  <h1 class="resTitle">
+    Reservations are made on a first come, first serve basis. Please select a
+    time and date below to reserve now:</h1>
+  <div>
+    {{! Create a div for each day, and create a button for every available time slot that day }}
+   <div class="calendarContainer">
+    <div class="day-slots-container">
+      <!-- Create a div for each day -->
+      {{#each days}}
+      <div class="day-container">
+        <h5 class="resDate">{{date}}</h5>
+        {{#each avail_times}}
+          <button
+            type="button"
+            class="btn btn-dark"
+            data-bs-toggle="modal"
+            data-bs-target="#resModal"
+            data-bs-whatever="{{days.date}}"
+          >{{this}}</button>
         {{/each}}
-    </div>
-    {{!-- Modal changes depending on whether user is logged in. If not, prompts them to do so instead of saving reservation --}}
-    {{#if loggedIn}}
+      </div>
+    {{/each}}
+  </div>
+  {{! Modal changes depending on whether user is logged in. If not, prompts them to do so instead of saving reservation }}
+  {{#if loggedIn}}
     <div class="modal fade" id="resModal" tabindex="-1">
-        <div class="modal-dialog">
+      <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5">Confirmation</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <p id="resDateTime">Book an Appointment for May 2nd, 2024 at 10:00 am?</p>
-                <form id="partyCountForm" class="needs-validation" novalidate>
-                    <div class="form-group">
-                        <label for="partyCount">Number of Participants</label>
-                        <input type="text" class="form-control" id="partyCount" required>
-                        <small id="emailHelp" class="form-text text-muted">Max 5</small>
-                        <div class="invalid-feedback">
-                            Party size must be 5 or fewer
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary" id="resConfirm">Confirm</button>
-                    </div>  
-                </form>
-            </div>
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Confirmation</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="modalBody">
+            <p id="resDateTime">Book an Appointment for May 2nd, 2024 at 10:00
+              am?</p>
+            <form id="partyCountForm" class="needs-validation" novalidate>
+              <div class="form-group">
+                <label for="partyCount">Number of Participants</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="partyCount"
+                  required
+                />
+                <small id="emailHelp" class="form-text text-muted">Max 5</small>
+                <div class="invalid-feedback">
+                  Party size must be 5 or fewer
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >Cancel</button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="resConfirm"
+                >Confirm</button>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    {{/if}}
-    {{#unless loggedIn}}
+  {{/if}}
+  {{#unless loggedIn}}
     <div class="modal fade" id="resModal" tabindex="-1">
-    <div class="modal-dialog">
+      <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-header">
+          <div class="modal-header">
             <h1 class="modal-title fs-5">Unable to Reserve Time</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            You must be logged in to reserve a time. 
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="resLogin">Login</button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            You must be logged in to reserve a time.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >Cancel</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="resLogin"
+            >Login</button>
             <button type="button" class="btn btn-primary" id="resSignUp">Sign Up</button>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    </div>
-    {{/unless}}
-    <script src="./js/reservations.js" defer></script>
+  {{/unless}}
+  <script src="./js/reservations.js" defer></script>
 </body>
