@@ -15,10 +15,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-    {{! Cloudinary }}
-    <script
-      src="https://cdn.jsdelivr.net/npm/cloudinary-core@2.13.1/cloudinary-core.min.js"
-    ></script>
 
     <!-- Link to Adobe Fonts CSS -->
     {{! <link href="https://fonts.adobe.com/fonts/quicksand" rel="stylesheet" />
@@ -41,27 +37,31 @@
   </head>
 
    <section class="home-section{{#if isHomepage}} homepage{{/if}}">
-   
-
+  
   <body>
      <div class="container-fluid">
     <header class="d-flex justify-content-between align-items-center p-2">
+      {{#unless isHomepage}}
       <h1 class="m-0">
         <a href="/">
           <img
-            src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691872991/jungle-escape-room-logo-b_umxaok.png"
+            src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691958295/escape-room-adventure-logo_wzo7or.png"
             alt="Logo"
             class="logo"
           />
         </a>
       </h1>
+       {{/unless}}
+
+
       {{!-- mobile menu --}}
        <div class="mobile-menu-icon" id="mobileMenuIcon">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>
   </div>
-  <div class="mobile-menu-dropdown">
+<!-- Mobile menu dropdown -->
+  <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
         <nav class="d-flex justify-content-center align-items-center">
           <!-- Navigation links for different pages -->
           <a href="/" >home</a>/
@@ -76,18 +76,7 @@
             <a href="/login">login</a>
           {{/if}}
 
-<!-- Mobile menu dropdown -->
-    <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
-      <a href="/">home</a>
-      <a href="/about">about</a>
-      <a href="/reservations">reservations</a>
-      {{#if loggedIn}}
-        <a href="/profile">profile</a>
-        <button class="no-button" id="logout">logout</button>
-      {{else}}
-        <a href="/signup">sign up</a>
-        <a href="/login">login</a>
-      {{/if}}
+
   </div>
         </nav>
       </header>
