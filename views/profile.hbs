@@ -17,16 +17,20 @@
         </button>
       </h2>
       <div id="accordion{{id}}" class="accordion-collapse collapse" data-bs-parent="#future-res">
-        <div class="accordion-body">
-          <h3>Your QR Code</h3>
-          <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+        <div class="accordion-body d-flex justify-content-center flex-wrap">
+          <h3 class="mb-2">Your QR Code</h3>
+          <div style="width: 100%;" class="d-flex justify-content-center mb-2">
+            <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+          </div>
           <p>
             For a more immersive experience, no staff will be there to greet you before your attempt.
             When you arrive, present this QR code to the scanner at the door.
           </p>
         </div>
-        {{!-- this button will delete reservation using fetch request (front end) --}}
-        <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
+          {{!-- this button will delete reservation using fetch request (front end) --}}
+          <div class="d-flex justify-content-center mb-3">
+            <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
+          </div>
       </div>
       {{! id will be needed to cancel reservation }}
       {{/each}}
@@ -56,7 +60,7 @@
   </div>
   {{/if}}
 
-  
+
 
 </section>
 {{! scripts for qr code }}

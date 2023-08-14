@@ -320,8 +320,6 @@ body {
 }
 
 .cancel-button {
-  margin-top: 10px;
-  margin-left: 20px;
   background-color: var(--green);
   border: none;
   border-radius: 5px;
