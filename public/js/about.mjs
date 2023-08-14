@@ -23,7 +23,9 @@ renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 // setting color of the renderer's background to transparent
 renderer.setClearColor(0x000000, 0);
 
-
+// setting camera position
+camera.position.z = 20
+camera.position.y = 5
 
 
 // ================== setting the light ==================
@@ -33,9 +35,12 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
 scene.add(ambientLight);
 
 // setting up the directional light (color, intensity)
-const directionalLight = new THREE.DirectionalLight(0xffb380, 3); // White directional light
+const directionalLight = new THREE.DirectionalLight(0xffb380, 0.4); // White directional light
 directionalLight.position.set(1, 1, 1); // Set the direction of the light
 scene.add(directionalLight);
+
+
+
 
 
 
@@ -63,9 +68,7 @@ loader.load( 'jungle_environment.glb', function ( gltf ) {
 		
 } );
 
-// setting camera position
-camera.position.z = 20
-camera.position.y = 5
+
 
 
 
@@ -85,29 +88,35 @@ canvas.addEventListener('click', function(e){
 		// only take them to the door the first time they press on a key
 		if(firstKey){
 			firstKey = false
-
-			// setting time interval
-			const interval = setInterval(() => {
-				if(camera.position.z > -280){
-					camera.position.z -= 1
-				}else {
-					if(camera.position.x > -200){
-						camera.position.x -=1
-					}else {
-						camera.position.x -=1
-						camera.position.z -=1
-					}
-				}
-
-				if(camera.position.z < -830){
-					clearInterval(interval)
-					// TODO: Redirect the user to seperate page with treasure
-				}
-			}, 10);
+			moveCamera()
+			
 		}
 	})
 	
 })
+
+// make camera movements
+function moveCamera() {
+	const moveSpeed = 0.8
+    if (camera.position.z > -830) {
+        if (camera.position.z > -280) {
+            camera.position.z -= moveSpeed;
+        } else {
+            if (camera.position.x > -200) {
+                camera.position.x -= moveSpeed;
+            } else {
+                camera.position.x -= moveSpeed;
+                camera.position.z -= moveSpeed;
+            }
+        }
+
+		// Continue animation loop
+        requestAnimationFrame(animateCamera);
+    } else {
+        // TODO: Redirect the user to a separate page with treasure
+    }
+}
+
 
 function animate() {
 	
