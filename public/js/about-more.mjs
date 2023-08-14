@@ -75,7 +75,7 @@ function animate(time) {
 }
 
 function constructHtml(){
-	
+
 }
 
 renderer.setAnimationLoop(animate)

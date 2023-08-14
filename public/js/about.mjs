@@ -7,6 +7,7 @@ import { PointerLockControls } from 'three/addons/controls/PointerLockControls.j
 
 // selecting a dom element for canvas
 const canvas = document.getElementById('scene-canvas');
+const blocker = document.getElementById('blocker')
 
 // creating a scene
 const scene = new THREE.Scene();
@@ -74,10 +75,10 @@ loader.load( 'jungle_environment.glb', function ( gltf ) {
 const controls = new PointerLockControls(camera, renderer.domElement)
 let firstKey = true
 
-canvas.addEventListener('click', function(e){
+blocker.addEventListener('click', function(e){
 	// without this event listener, you can't let your user move around the camera
 	controls.lock()
-
+	blocker.style.display = 'none'
 	// zoom into the door when the user presses any key
 	document.addEventListener('keydown', function(e){
 	
@@ -117,7 +118,7 @@ function moveCamera() {
 
 
 function animate() {
-	
+	renderer.setSize(canvas.clientWidth, canvas.clientHeight)
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );
 }
