@@ -30,6 +30,9 @@ const createRenderObj = function (resList) {
                 dayObj.avail_times.push(time)
             }
         };
+        if (dayObj.avail_times.length == 0) {
+            delete dayObj.avail_times;
+        }
         //add new day to list
         daysList.push(dayObj);
     }
@@ -52,12 +55,10 @@ router.get('/', async (req, res)=>{
 
     // generate list of dates/times and add it to render object
     reservationRenderInfo.days = createRenderObj(reservationList)
-
     // add loggedIn property to render data
     if (req.session.loggedIn){
         reservationRenderInfo.loggedIn = true
     }
-
     res.render('reservations', reservationRenderInfo )
     } catch (err) {
         res.status(500).json(err)
