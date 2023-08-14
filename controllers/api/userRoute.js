@@ -10,17 +10,27 @@ router.post('/signup', async (req, res)=>{
         // checks if the body is valid
         if(req.body.email && req.body.password && req.body.username){
             // check that username is unique, starting by pulling username info
-            let userNames = await User.findAll({
-                attributes: ['username']
+            let users = await User.findAll({
+                attributes: ['username', 'email']
             })
             // extract names from sequelize response
-            userNames = userNames.map((user) => {
+            let userNames = users.map((user) => {
                 let userRow = user.get({ plain: true});
                 return userRow.username;
             })
+
             //compare to submitted username
             if (userNames.includes(req.body.username)) {
                 res.status(400).json({message: 'Username already exists'})
+                return;
+            }
+
+            let userEmails = users.map((user) => {
+                let userRow = user.get({ plain: true});
+                return userRow.email;
+            })
+            if (userEmails.includes(req.body.email)) {
+                res.status(400).json({message: 'Email already in use'})
                 return;
             }
 
