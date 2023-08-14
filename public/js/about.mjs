@@ -35,7 +35,7 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
 scene.add(ambientLight);
 
 // setting up the directional light (color, intensity)
-const directionalLight = new THREE.DirectionalLight(0xffb380, 0.4);
+const directionalLight = new THREE.DirectionalLight(0xffb380, 0.4); // White directional light
 directionalLight.position.set(1, 1, 1); // Set the direction of the light
 scene.add(directionalLight);
 
@@ -111,6 +111,7 @@ function moveCamera() {
     } else {
         // Redirect the user to a separate page with treasure
 		window.location.href = '/about-more'
+
     }
 }
 
