@@ -30,11 +30,11 @@ const createRenderObj = function (resList) {
                 dayObj.avail_times.push(time)
             }
         };
-        if (dayObj.avail_times.length == 0) {
-            delete dayObj.avail_times;
+        
+        //don't render the date if there are no avaiable times
+        if (dayObj.avail_times.length !== 0) {
+            daysList.push(dayObj);
         }
-        //add new day to list
-        daysList.push(dayObj);
     }
     return daysList;
 }

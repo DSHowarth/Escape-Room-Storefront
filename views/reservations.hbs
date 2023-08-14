@@ -8,6 +8,7 @@
     <div class="day-slots-container">
       <!-- Create a div for each day -->
     {{#each days}}
+    {{!-- doesn't render the day if there are no time slots available --}}
       {{#if avail_times}}
       <div class="day-container">
         <h5 class="resDate">{{date}}</h5>
