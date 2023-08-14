@@ -11,6 +11,7 @@ const scene = new THREE.Scene()
 
 // set up a camera
 const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth/canvas.clientHeight, 0.1, 2000)
+camera.position.z = 25
 
 // setting up a renderer
 const renderer = new THREE.WebGL1Renderer({canvas: canvas, alpha: true})
@@ -19,13 +20,19 @@ renderer.setSize(canvas.clientWidth, canvas.clientHeight)
 
 renderer.setClearColor(0x000000, 0)
 
-// setting light
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.75)
-scene.add(ambientLight)
+// // setting light
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.75)
+// scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
 directionalLight.position.set(1, 1, 1)
 scene.add(directionalLight)
+
+const flashlight = new THREE.SpotLight(0xff0000,4,100, Math.PI/4);
+flashlight.position.set(-4,8,22);
+camera.add(flashlight);
+flashlight.target = camera;
+console.log(flashlight)
 
 // setting controls
 const control = new OrbitControls(camera, renderer.domElement)
@@ -44,15 +51,16 @@ loader.load( 'treasure_chest.glb', function ( gltf ) {
 	scene.add( gltf.scene );
 
 	const pointLight = new THREE.PointLight(0x00ff00, 70, 100); 
-    pointLight.position.set(1, 10, 1); // Set light's position to match chest's position
+    pointLight.position.set(1, 10, 1);
     scene.add(pointLight);
 	
+	chest.scene.rotation.x = Math.PI / 10;
 } );
 
 function animate() {
-	if(chest){
-			chest.scene.rotation.y += 0.001
-		}
+	// if(chest){
+	// 		chest.scene.rotation.y += 0.001
+	// 	}
 	
 	requestAnimationFrame( animate );
 	renderer.render( scene, camera );

@@ -111,9 +111,10 @@ function moveCamera() {
         }
 
 		// Continue animation loop
-        requestAnimationFrame(animateCamera);
+        requestAnimationFrame(moveCamera);
     } else {
         // TODO: Redirect the user to a separate page with treasure
+		window.location.href = '/about-more'
     }
 }
 
