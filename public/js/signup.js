@@ -14,6 +14,18 @@ signupForm.addEventListener('submit', async function(event){
         emailIn.classList.add('is-invalid');
         return;
     }
+    // check if the password is the correct length, inform user if so
+    if (passwordIn.value.length < 8) {
+
+        passwordIn.classList.remove('is-valid');
+        passwordIn.classList.add('is-invalid');
+        return;
+    }
+    else{
+        passwordIn.classList.remove('is-invalid');
+        passwordIn.classList.add('is-valid');
+    }
+
     // check if the password matches the confirm password, inform user if so
     if(passwordIn.value != passwordConfirm.value){
 
@@ -22,13 +34,12 @@ signupForm.addEventListener('submit', async function(event){
         passwordConfirm.classList.add('is-invalid');
         return;
     }
-    // check fi the password is the correct length, inform user if so
-    else if (passwordIn.value.length < 8) {
-
-        passwordIn.classList.remove('is-valid');
-        passwordIn.classList.add('is-invalid');
-        return;
+    else{
+        passwordConfirm.classList.remove('is-invalid');
+        passwordConfirm.classList.add('is-valid');
     }
+
+
 
     // construct a body object for fetch request
     const bodyObj = {
