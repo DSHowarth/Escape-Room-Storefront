@@ -97,7 +97,6 @@ canvas.addEventListener('click', function(e){
 						camera.position.x -=1
 						camera.position.z -=1
 					}
-					console.log(camera.position.z)
 				}
 
 				if(camera.position.z < -830){
