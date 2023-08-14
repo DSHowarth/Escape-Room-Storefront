@@ -61,7 +61,7 @@ const seedUsers = async () => {
 }
 
 const seedRes = async () => {
-    await Reservation.bulkCreate(reservationData)
+await Reservation.bulkCreate(reservationData)
     console.log(await Reservation.findAll())
 }
 
