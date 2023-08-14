@@ -48,7 +48,7 @@ const loader = new GLTFLoader();
 let jungleSetting
 
 // imports (file path, callback)
-loader.load( 'jungle_environment.glb', function ( gltf ) {
+loader.load( '/3d/jungle_environment.glb', function ( gltf ) {
 
 	// setting the model to the variable
 	jungleSetting = gltf
