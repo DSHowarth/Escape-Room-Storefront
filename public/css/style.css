@@ -290,6 +290,15 @@ body {
   border: 2px solid var(--green);
 }
 
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #82a390;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
 .profile-content {
   width: 100%;
   margin-top: 10px;
