@@ -24,6 +24,16 @@
     />
     <link href="https://fonts.adobe.com/search?query=acumin" rel="stylesheet" /> }}
     <link rel="stylesheet" href="/css/style.css" />
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.155.0/examples/jsm/"
+        }
+      }
+    </script>
   </head>
 
    <section class="home-section{{#if isHomepage}} homepage{{/if}}">
@@ -55,8 +65,9 @@
         <nav class="d-flex justify-content-center align-items-center">
           <!-- Navigation links for different pages -->
           <a href="/" >home</a>/
-          <a href="/about">about</a>/
+          <a href="/developers">developers</a>/
           <a href="/reservations">reservations</a>/
+          <a href="/about">about</a>/
           {{#if loggedIn}}
             <a href="/profile">profile</a>
             <button class="no-button" id="logout">logout</button>

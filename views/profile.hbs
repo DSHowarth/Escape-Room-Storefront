@@ -9,34 +9,24 @@
   <div class="accordion profile-content" id="future-res">
     {{! for each reservation, create a accordion }}
     {{#each reservations}}
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#accordion{{id}}"
-            aria-expanded="true"
-            aria-controls="accordion{{id}}"
-          >
-            {{date}}
-          </button>
-        </h2>
-        <div
-          id="accordion{{id}}"
-          class="accordion-collapse collapse"
-          data-bs-parent="#future-res"
-        >
-          <div class="accordion-body">
-            <h3>Your QR Code</h3>
-            <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
-          </div>
-          {{! this button will delete reservation using fetch request (front end) }}
-          <button
-            data-resId="{{id}}"
-            class="btn btn-danger cancel-button"
-          >Cancel</button>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion{{id}}"
+          aria-expanded="true" aria-controls="accordion{{id}}">
+          {{date}}
+        </button>
+      </h2>
+      <div id="accordion{{id}}" class="accordion-collapse collapse" data-bs-parent="#future-res">
+        <div class="accordion-body">
+          <h3>Your QR Code</h3>
+          <div id="{{id}}" data-qrCode="{{qr_code_url}}"></div>
+          <p>
+            For a more immersive experience, no staff will be there to greet you before your attempt.
+            When you arrive, present this QR code to the scanner at the door. 
+          </p>
         </div>
+        {{!-- this button will delete reservation using fetch request (front end) --}}
+        <button data-resId="{{id}}" class="btn btn-danger cancel-button">Cancel</button>
       </div>
       {{! id will be needed to cancel reservation }}
     {{/each}}
