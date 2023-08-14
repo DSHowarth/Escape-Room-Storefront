@@ -146,15 +146,6 @@ body {
   height: 100vh;
 }
 
-/* .home-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 1; /* Place the content above the video 
-} */
-
 /* ------------------------------------ NEON BUTTON STYLES --------------------------------------*/
 .neon-button {
   display: flex;
@@ -213,8 +204,6 @@ body {
 .resTitle {
   margin-bottom: 80px;
   text-align: center;
-  /* border-bottom: 2px dashed var(--grey);
-  padding-bottom: 50px; */
 }
 
 .calendarContainer {
@@ -284,6 +273,62 @@ body {
 }
 
 .btn-primary:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+/*-------------------------------------------------- PROFILE ----------------------------------------------------*/
+
+.accordion-button {
+  background-color: var(--grey);
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.accordion-button:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.profile-content {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.delete-button {
+  background-color: var(--green);
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.delete-button:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.cancel-button {
+  margin-top: 10px;
+  margin-left: 20px;
+  background-color: var(--green);
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cancel-button:hover {
   background-color: white;
   color: var(--green);
   border: 2px solid var(--green);
