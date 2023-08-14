@@ -11,7 +11,7 @@ const scene = new THREE.Scene()
 
 // set up a camera
 const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth/canvas.clientHeight, 0.1, 2000)
-camera.position.z = 25
+camera.position.z = 35
 
 // setting up a renderer
 const renderer = new THREE.WebGL1Renderer({canvas: canvas, alpha: true})
@@ -27,12 +27,6 @@ renderer.setClearColor(0x000000, 0)
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5)
 directionalLight.position.set(1, 1, 1)
 scene.add(directionalLight)
-
-const flashlight = new THREE.SpotLight(0xff0000,4,100, Math.PI/4);
-flashlight.position.set(-4,8,22);
-camera.add(flashlight);
-flashlight.target = camera;
-console.log(flashlight)
 
 // setting controls
 const control = new OrbitControls(camera, renderer.domElement)
