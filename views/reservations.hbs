@@ -9,7 +9,6 @@
       <!-- Create a div for each day -->
     {{#each days}}
     {{!-- doesn't render the day if there are no time slots available --}}
-      {{#if avail_times}}
       <div class="day-container">
         <h5 class="resDate">{{date}}</h5>
         {{#each avail_times}}
@@ -22,7 +21,6 @@
           >{{this}}</button>
         {{/each}}
       </div>
-      {{/if}}
     {{/each}}
   </div>
   {{! Modal changes depending on whether user is logged in. If not, prompts them to do so instead of saving reservation }}
