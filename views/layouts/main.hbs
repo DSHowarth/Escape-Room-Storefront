@@ -65,13 +65,14 @@
         <nav class="d-flex justify-content-center align-items-center">
           <!-- Navigation links for different pages -->
           <a href="/" >home</a>/
-          <a href="/developers">developers</a>/
-          <a href="/reservations">reservations</a>/
           <a href="/about">about</a>/
+          <a href="/reservations">book a reservation</a>/
           {{#if loggedIn}}
-            <a href="/profile">profile</a>
+            <a href="/profile">my reservations</a>/
+            <a href="/developers">developers</a>/
             <button class="no-button" id="logout">logout</button>
           {{else}}
+            <a href="/developers">developers</a>/
             <a href="/signup">sign up</a>/
             <a href="/login">login</a>
           {{/if}}
