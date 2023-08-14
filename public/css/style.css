@@ -112,11 +112,6 @@ body {
 /* } */
 /* } */
 
-.logo-container {
-  position: relative;
-  display: inline-block;
-}
-
 /* invert the logo color for homepage */
 .homepage .logo {
   filter: invert(100%);
