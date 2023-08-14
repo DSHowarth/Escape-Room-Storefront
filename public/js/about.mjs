@@ -15,7 +15,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 2000);
 
 // setting up the renderer to use canvas element, alpha true means setting up the pixels in model to have transparent background
-const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true }); 
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true }); 
 
 // setting up the size equal to canvas height and width
 renderer.setSize(canvas.clientWidth, canvas.clientHeight);
@@ -38,10 +38,6 @@ scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffb380, 0.4);
 directionalLight.position.set(1, 1, 1); // Set the direction of the light
 scene.add(directionalLight);
-
-
-
-
 
 
 // ================== importing a 3d model ==================
@@ -113,7 +109,7 @@ function moveCamera() {
 		// Continue animation loop
         requestAnimationFrame(moveCamera);
     } else {
-        // TODO: Redirect the user to a separate page with treasure
+        // Redirect the user to a separate page with treasure
 		window.location.href = '/about-more'
     }
 }
