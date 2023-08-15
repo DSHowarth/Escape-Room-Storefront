@@ -47,7 +47,6 @@ See how our site looks on mobile
 - Java Script: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - jQuery: [jQuery](https://jquery.com/)
 - Fetch API: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- AJAX: [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
 - Qrcode.js: [Qrcode.js](https://davidshimjs.github.io/qrcodejs/)
 - Three.js: [Three.js](https://threejs.org/)
 - Materialize: [Materialize](https://materializecss.com/)
