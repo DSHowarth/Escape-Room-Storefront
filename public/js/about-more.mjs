@@ -36,7 +36,7 @@ let chest
 
 const pointLight = new THREE.PointLight(0x00ff00, 50, 100); 
 
-loader.load( 'treasure_chest.glb', function ( gltf ) {
+loader.load( '/3d/treasure_chest.glb', function ( gltf ) {
 
 	chest = gltf
 

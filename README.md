@@ -40,6 +40,19 @@ See how our site looks on mobile
 - [Usage](#usage)
 - [Contributors](#contributors)
 
+### Front-End Technologies
+
+- HTML: [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- CSS: [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- Java Script: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- jQuery: [jQuery](https://jquery.com/)
+- Fetch API: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- AJAX: [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
+- Qrcode.js: [Qrcode.js](https://davidshimjs.github.io/qrcodejs/)
+- Three.js: [Three.js](https://threejs.org/)
+- Materialize: [Materialize](https://materializecss.com/)
+- Bootstrap: [Bootstrap](https://getbootstrap.com/)
+
 ### Back-End Technologies
 
 - Node: [Node](https://nodejs.org/)
@@ -48,6 +61,7 @@ See how our site looks on mobile
 - bcrypt: [bcrypt](https://www.npmjs.com/package/bcrypt)
 - Day.js: [Day.js](https://day.js.org/)
 - Cloudinary: [Cloudinary](https://cloudinary.com/)
+  qrcode js: https://github.com/davidshimjs/qrcodejs
 
 ### Database
 
@@ -75,19 +89,6 @@ See how our site looks on mobile
 - Get access to QR codes for reservations and easy check-in.
 
 ## Technology Used
-
-### Front-End Technologies
-
-- HTML: [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- CSS: [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- Java Script: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-- jQuery: [jQuery](https://jquery.com/)
-- Fetch API: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- AJAX: [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
-- Qrcode.js: [Qrcode.js](https://davidshimjs.github.io/qrcodejs/)
-- Three.js: [Three.js](https://threejs.org/)
-- Materialize: [Materialize](https://materializecss.com/)
-- Bootstrap: [Bootstrap](https://getbootstrap.com/)
 
 <br>
 
@@ -185,3 +186,9 @@ For any questions or inquires, feel free to reach out to us via GitHub:
 [Derek Stanley-Howarth](https://github.com/DSHowarth/) or Email: dkshowarth@gmail.com.
 [June Moon](https://github.com/moonjunsain) or Email: moonjunsain@gmail.com.
 [Elena Gurchinskaia](https://github.com/elenagurchinskaia) or Email: elenagurchinskaia@gmail.com.
+
+qrcode js: https://github.com/davidshimjs/qrcodejs
+
+credit (3d models)
+treasure chest: https://sketchfab.com/D.art
+jungle environment: https://sketchfab.com/KNUT-OLAV_UTISTOG
