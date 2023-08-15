@@ -11,10 +11,18 @@
   --font-buttons: "Acumin Variable Concept", sans-serif; /* buttons */
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .logo {
   filter: invert(0%);
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
+  position: fixed;
+  left: 20px;
+  top: 20px;
 }
 
 nav {
@@ -22,6 +30,8 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 nav a {
@@ -40,7 +50,20 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* Logout button styles */
+/* Style for the hamburger icon */
+.mobile-menu-icon {
+  display: none; /* Hide by default for larger screens */
+  cursor: pointer;
+  z-index: 3;
+}
+
+.mobile-menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+}
+
+/* logout button styles */
 #logout {
   color: black;
   background-color: transparent;
@@ -83,34 +106,6 @@ body {
     transform: translate(-50%, -50%) rotate(20deg);
   }
 }
-
-/* .monkey-cup-logo:hover {
-  filter: invert(0%);
-  animation: wave 0.5s ease infinite; /* the wave animation on hover */
-/* } */
-
-/* custom animation */
-/* @keyframes wave {
-  /* keyframe steps 0%, 25%, 50%, 75%, 100% */
-/* 0% { */
-/* sets the initial position of the logo, without any horizontal movement */
-/* transform: translateX(0); */
-/* } */
-/* 25% { */
-/* creates a gentle side-to-side movement by transalating the logo horizontally by 5px in both directions */
-/* transform: translateX(-5px); */
-/* } */
-/* 50% { */
-/* transform: translateX(5px); */
-/* } */
-/* 75% { */
-/* transform: translateX(-5px); */
-/* } */
-/* 100% { */
-/* returns the logo to its original horizontal position */
-/* transform: translateX(0); */
-/* } */
-/* } */
 
 /* invert the logo color for homepage */
 .homepage .logo {
@@ -173,9 +168,6 @@ body {
   box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00,
     inset 0 0 10px #00ff00, inset 0 0 20px #00ff00;
   border-color: #00ff00; /* Change border color on hover */
-  /* width: 110px;
-  height: 110px;
-  line-height: 110px; */
 }
 
 .button-text {
@@ -199,6 +191,26 @@ body {
 .resTitle {
   margin-bottom: 80px;
   text-align: center;
+  font-size: 20px;
+}
+
+.day-container {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+/* adjust button styles for better mobile appearance */
+.day-container .btn {
+  display: block;
+  width: 100%;
+  margin: 5px auto;
+  text-align: center;
+  padding: 0px;
 }
 
 .calendarContainer {
@@ -221,13 +233,14 @@ body {
 
 .btn-dark {
   margin: 5px;
-  padding: 15px 50px;
+  /* padding: 15px 50px; */
   background-color: var(--green);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  width: 200px;
 }
 
 .btn-dark:hover {
@@ -395,16 +408,52 @@ body {
   height: 20px;
   margin-bottom: -5px;
 }
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--green);
+}
+/*-------------------------------------------------- MEDIA QUERIES ----------------------------------------------------*/
 
-/*-------------------------------------------------- MEDIA ----------------------------------------------------*/
-
-@media (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  #mobileMenuIcon {
+    display: none;
+  }
 }
 
-@media screen and (min-width: 360px) and (max-width: 740px) {
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  #mobileMenuDropdown {
+    display: none;
+  }
+  /* reservations title */
+  .resTitle {
+    font-size: 15px;
+  }
+
+  /* style the day container */
+  .day-container {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* adjust button styles for better mobile appearance */
+  .day-container .btn {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 1366px) {
   body {
     font-size: 14px;
   }
+
   .neon-button {
     bottom: 10%;
     right: 5%;
@@ -431,29 +480,67 @@ body {
     justify-content: space-between;
     padding: 10px 0;
   }
-  /* nav a {
-    display: none; /* hide the links in the navigation */
-  /* } */
+
+  #slide-out a {
+    color: black;
+  }
 
   /* adjust the button size for smaller screens */
-  .neon-button {
+  /* .neon-button {
     width: 70px;
     height: 70px;
     line-height: 70px;
-  }
-  .mobile-menu-icon {
-    display: none;
-    cursor: pointer;
-  }
+  } */
 
+  /* hamburger bar */
   .bar {
     width: 25px;
     height: 3px;
     margin: 4px 0;
-    background-color: var(--green);
+    background-color: var(--grey);
+  }
+
+  .mobile-menu-icon {
+    display: block; /* Show the hamburger icon */
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* located on top of everything */
   }
 
   .mobile-menu-icon.clicked .bar {
-    background-color: white; /* Set the bar color to white when the icon is clicked */
+    background-color: white;
+  }
+}
+
+/* sign up page */
+
+@media screen and (min-width: 360px) {
+  .card {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .form-group {
+    text-align: left;
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+  }
+
+  .text-center {
+    text-align: center;
   }
 }
