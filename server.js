@@ -30,7 +30,7 @@ const PORT = process.env.PORT || 3001;
 // creating a session
 const sess = {
   secret: "Jerome likes dogs more than cats",
-  cookie: {}, // might need to set expiration time?
+  cookie: {},
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

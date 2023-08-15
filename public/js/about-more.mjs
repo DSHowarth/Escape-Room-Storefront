@@ -66,6 +66,7 @@ function animate(time) {
 			camera.position.x -= 0.05
 		}else{
 			// finished animating camera => starts rendering 
+			constructHtml()
 			
 		}
 
@@ -74,8 +75,16 @@ function animate(time) {
 	renderer.render( scene, camera );
 }
 
+// shows all the texts
 function constructHtml(){
+	const introduction = document.querySelector('.introduction')
+	const introContainer = document.querySelector('.intro-container')
 
+	introduction.style.display = 'block'
+	introContainer.style.display = 'block'
+
+	introduction.style.animationName = 'glow'
+	introContainer.style.animationName = 'intro'
 }
 
 renderer.setAnimationLoop(animate)
