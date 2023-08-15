@@ -11,10 +11,18 @@
   --font-buttons: "Acumin Variable Concept", sans-serif; /* buttons */
 }
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .logo {
   filter: invert(0%);
-  max-width: 150px;
+  max-width: 200px;
   height: auto;
+  position: fixed;
+  left: 20px;
+  top: 20px;
 }
 
 nav {
@@ -183,7 +191,26 @@ body {
 .resTitle {
   margin-bottom: 80px;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.day-container {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+/* adjust button styles for better mobile appearance */
+.day-container .btn {
+  display: block;
+  width: 100%;
+  margin: 5px auto;
+  text-align: center;
+  padding: 0px;
 }
 
 .calendarContainer {
@@ -206,13 +233,14 @@ body {
 
 .btn-dark {
   margin: 5px;
-  padding: 15px 50px;
+  /* padding: 15px 50px; */
   background-color: var(--green);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  width: 200px;
 }
 
 .btn-dark:hover {
@@ -416,6 +444,8 @@ body {
     display: block;
     width: 100%;
     margin: 5px auto;
+    text-align: center;
+    padding: 0px;
   }
 }
 
@@ -456,12 +486,13 @@ body {
   }
 
   /* adjust the button size for smaller screens */
-  .neon-button {
+  /* .neon-button {
     width: 70px;
     height: 70px;
     line-height: 70px;
-  }
+  } */
 
+  /* hamburger bar */
   .bar {
     width: 25px;
     height: 3px;
