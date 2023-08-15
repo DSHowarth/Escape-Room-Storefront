@@ -3,18 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JUNGLE ESCAPE ROOM</title>
+    <title>The Monkey's Cup</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
+   
 
     <!-- Link to Adobe Fonts CSS -->
     {{! <link href="https://fonts.adobe.com/fonts/quicksand" rel="stylesheet" />
@@ -65,17 +61,18 @@
         <nav class="d-flex justify-content-center align-items-center">
           <!-- Navigation links for different pages -->
           <a href="/" >home</a>/
-          <a href="/developers">developers</a>/
-          <a href="/reservations">reservations</a>/
           {{#if isMobileView}}
            <a href="/about-more">about</a>/
            {{else}}
-           {{/if}}
           <a href="/about">about</a>/
+           {{/if}}
+          <a href="/reservations">book a reservation</a>/
           {{#if loggedIn}}
-            <a href="/profile">profile</a>
+            <a href="/profile">my reservations</a>/
+            <a href="/developers">developers</a>/
             <button class="no-button" id="logout">logout</button>
           {{else}}
+            <a href="/developers">developers</a>/
             <a href="/signup">sign up</a>/
             <a href="/login">login</a>
           {{/if}}

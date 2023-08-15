@@ -26,12 +26,17 @@ const createRenderObj = function (resList) {
         };
         // if there isn't a slot booked for that time, add it to the list of avail times
         for (let time of times) {
-            if (!resList.includes(dayObj.date + ' ' + time)) {
+            if (!resList.includes(dayObj.date + ' ' + time)
+                // don't render time slots that have already passed in the current day
+                && dayjs().isBefore(dayjs(dayObj.date + ' ' + time))) {
                 dayObj.avail_times.push(time)
             }
         };
-        //add new day to list
-        daysList.push(dayObj);
+        
+        //don't render the date if there are no avaiable times
+        if (dayObj.avail_times.length !== 0) {
+            daysList.push(dayObj);
+        }
     }
     return daysList;
 }
@@ -52,12 +57,10 @@ router.get('/', async (req, res)=>{
 
     // generate list of dates/times and add it to render object
     reservationRenderInfo.days = createRenderObj(reservationList)
-
     // add loggedIn property to render data
     if (req.session.loggedIn){
         reservationRenderInfo.loggedIn = true
     }
-
     res.render('reservations', reservationRenderInfo )
     } catch (err) {
         res.status(500).json(err)

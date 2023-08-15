@@ -290,6 +290,15 @@ body {
   border: 2px solid var(--green);
 }
 
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: #82a390;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
 .profile-content {
   width: 100%;
   margin-top: 10px;
@@ -311,8 +320,6 @@ body {
 }
 
 .cancel-button {
-  margin-top: 10px;
-  margin-left: 20px;
   background-color: var(--green);
   border: none;
   border-radius: 5px;
