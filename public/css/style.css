@@ -22,6 +22,8 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 nav a {
@@ -39,6 +41,26 @@ nav a:hover {
 nav a:hover {
   text-decoration: none;
 }
+
+/* Style for the hamburger icon */
+.mobile-menu-icon {
+  display: none; /* Hide by default for larger screens */
+  cursor: pointer;
+  z-index: 3;
+}
+
+.mobile-menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  /* background-color: var(--grey); */
+  /* transition: background-color 0.3s ease; */
+}
+
+/* Change the background color of the hamburger icon on click */
+/* .mobile-menu-icon.clicked .bar {
+  background-color: white;
+} */
 
 /* Logout button styles */
 #logout {
@@ -83,34 +105,6 @@ body {
     transform: translate(-50%, -50%) rotate(20deg);
   }
 }
-
-/* .monkey-cup-logo:hover {
-  filter: invert(0%);
-  animation: wave 0.5s ease infinite; /* the wave animation on hover */
-/* } */
-
-/* custom animation */
-/* @keyframes wave {
-  /* keyframe steps 0%, 25%, 50%, 75%, 100% */
-/* 0% { */
-/* sets the initial position of the logo, without any horizontal movement */
-/* transform: translateX(0); */
-/* } */
-/* 25% { */
-/* creates a gentle side-to-side movement by transalating the logo horizontally by 5px in both directions */
-/* transform: translateX(-5px); */
-/* } */
-/* 50% { */
-/* transform: translateX(5px); */
-/* } */
-/* 75% { */
-/* transform: translateX(-5px); */
-/* } */
-/* 100% { */
-/* returns the logo to its original horizontal position */
-/* transform: translateX(0); */
-/* } */
-/* } */
 
 /* invert the logo color for homepage */
 .homepage .logo {
@@ -396,12 +390,9 @@ body {
   margin-bottom: -5px;
 }
 
-/*-------------------------------------------------- MEDIA ----------------------------------------------------*/
+/*-------------------------------------------------- MEDIA QUERIES ----------------------------------------------------*/
 
-@media (max-width: 768px) {
-}
-
-@media screen and (min-width: 360px) and (max-width: 740px) {
+@media screen and (min-width: 360px) and (max-width: 1366px) {
   body {
     font-size: 14px;
   }
@@ -431,9 +422,9 @@ body {
     justify-content: space-between;
     padding: 10px 0;
   }
-  /* nav a {
+  nav a {
     display: none; /* hide the links in the navigation */
-  /* } */
+  }
 
   /* adjust the button size for smaller screens */
   .neon-button {
@@ -441,19 +432,20 @@ body {
     height: 70px;
     line-height: 70px;
   }
-  .mobile-menu-icon {
-    display: none;
-    cursor: pointer;
-  }
 
   .bar {
     width: 25px;
     height: 3px;
     margin: 4px 0;
-    background-color: var(--green);
+    background-color: var(--grey);
+  }
+
+  .mobile-menu-icon {
+    display: block; /* Show the hamburger icon */
+    cursor: pointer;
   }
 
   .mobile-menu-icon.clicked .bar {
-    background-color: white; /* Set the bar color to white when the icon is clicked */
+    background-color: white;
   }
 }

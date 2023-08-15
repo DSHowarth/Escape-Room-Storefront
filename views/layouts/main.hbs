@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Monkey's Cup</title>
+     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+     <!-- MaterializeCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    
 
     <!-- Link to Adobe Fonts CSS -->
@@ -50,12 +53,6 @@
        {{/unless}}
 
 
-      {{!-- mobile menu --}}
-       <div class="mobile-menu-icon" id="mobileMenuIcon">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
 <!-- Mobile menu dropdown -->
   <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
         <nav class="d-flex justify-content-center align-items-center">
@@ -86,21 +83,27 @@
           <div class="user-view">
             {{!-- <div class="background"><img src="/images/A Monkey's Cup-logo.png" /></div> --}}
 
-            <a href="./index.html"><img class="circle" src="/images/A Monkey's Cup-logo.png" /></a>
-            <a href="#name"><span class="white-text name">THE MONKEY'S CUP</span></a>
-            <a href="#email"><span class="white-text email">AN ESCAPE ROOM ADVENTURE</span></a>
+            <a href="/homepage.hbs"><img class="circle" src="/images/A Monkey's Cup-logo.png" /></a>
+            <a href="#name"><span class="name">THE MONKEY'S CUP</span></a>
+            <a href="#email"><span class="email">AN ESCAPE ROOM ADVENTURE</span></a>
           </div>
         </li>
-        <li><a class="waves-effect" href="./index.html">home</a>
-        <li><a class="waves-effect" href="./developer.html">developers</a></li>
-         <li><a class="waves-effect" href="./developer.html">reservations</a></li>
-        <li><a class="waves-effect" href="./index.html">about</a></li>
-        <li><a class="waves-effect" href="./index.html">sign up</a></li>
-        <li><a class="waves-effect" href="./index.html">login</a></li>
-        <li><a class="waves-effect" href="./index.html">logout</a></li>
+        <li><a class="waves-effect" href="/homepage.hbs">home</a>
+        <li><a class="waves-effect" href="/developers.hbs">developers</a></li>
+         <li><a class="waves-effect" href="/reservations.hbs">reservations</a></li>
+        <li><a class="waves-effect" href="/about.hbs">about</a></li>
+        <li><a class="waves-effect" href="/signup.hbs">sign up</a></li>
+        <li><a class="waves-effect" href="/login.hbs">login</a></li>
+        <li><a class="waves-effect" href="logout.hbs">logout</a></li>
       </ul>
     </div>
     </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div>
+      {{!-- mobile menu --}}
+       <div class="mobile-menu-icon" id="mobileMenuIcon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
 {{!--  --}}
   </div>
         </nav>
@@ -118,9 +121,21 @@
     {{#if loggedIn}}
       <script src="/js/logout.js"></script>
     {{/if}}
+     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- MaterializeCSS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/redirect.js"></script>
+  {{!-- Side Nav Bar --}}
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll(".sidenav");
+      var instances = M.Sidenav.init(elems);
+    });
+  </script>
+
+
   </body>
 
 </html>
