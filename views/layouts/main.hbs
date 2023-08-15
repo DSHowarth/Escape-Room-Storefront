@@ -13,18 +13,10 @@
     />
      <!-- MaterializeCSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-   
-
-    <!-- Link to Adobe Fonts CSS -->
-    {{! <link href="https://fonts.adobe.com/fonts/quicksand" rel="stylesheet" />
-    <link
-      href="https://fonts.adobe.com/search?query=forma+DJR+display"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.adobe.com/search?query=acumin" rel="stylesheet" /> }}
+      {{!-- CSS --}}
     <link rel="stylesheet" href="/css/style.css" />
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-
+      {{!-- THREE.js --}}
     <script type="importmap">
       {
         "imports": {
@@ -35,9 +27,9 @@
     </script>
   </head>
 
-   <section class="home-section{{#if isHomepage}} homepage{{/if}}">
-  
+  {{!-- Logo --}}
   <body>
+   <section class="home-section{{#if isHomepage}} homepage{{/if}}">
      <div class="container-fluid">
     <header class="d-flex justify-content-between align-items-center p-2">
       {{#unless isHomepage}}
@@ -55,8 +47,9 @@
 
 <!-- Mobile menu dropdown -->
   <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
-        <nav class="d-flex justify-content-center align-items-center">
-          <!-- Navigation links for different pages -->
+    {{!-- desktop nav-bar --}}
+        <nav class="desktop-nav d-flex justify-content-center align-items-center">
+          <!-- desktop navigation links for different pages -->
           <a href="/" >home</a>/
           {{#if isMobileView}}
            <a href="/about-more">about</a>/
@@ -73,40 +66,42 @@
             <a href="/signup">sign up</a>/
             <a href="/login">login</a>
           {{/if}}
-
+          </nav>
+  </div>
   <!--MOBILE NAV BAR-->
   
+      {{!-- mobile menu --}}
+       <div class="mobile-menu-icon" id="mobileMenuIcon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+
   <section class="bg-img">
     <div>
       <ul id="slide-out" class="sidenav">
         <li>
           <div class="user-view">
             {{!-- <div class="background"><img src="/images/A Monkey's Cup-logo.png" /></div> --}}
-
-            <a href="/homepage.hbs"><img class="circle" src="/images/A Monkey's Cup-logo.png" /></a>
-            <a href="#name"><span class="name">THE MONKEY'S CUP</span></a>
-            <a href="#email"><span class="email">AN ESCAPE ROOM ADVENTURE</span></a>
+            <a href="/"><img class="circle" src="/images/A Monkey's Cup-logo.png" /></a>
+            <a href="#name"><h2 class="name">THE MONKEY'S CUP</h2></a>
+            <a href="#email"><h4 class="sub-header">AN ESCAPE ROOM ADVENTURE</h4></a>
           </div>
         </li>
-        <li><a class="waves-effect" href="/homepage.hbs">home</a>
-        <li><a class="waves-effect" href="/developers.hbs">developers</a></li>
-         <li><a class="waves-effect" href="/reservations.hbs">reservations</a></li>
-        <li><a class="waves-effect" href="/about.hbs">about</a></li>
-        <li><a class="waves-effect" href="/signup.hbs">sign up</a></li>
-        <li><a class="waves-effect" href="/login.hbs">login</a></li>
-        <li><a class="waves-effect" href="logout.hbs">logout</a></li>
+        <li><a class="waves-effect" href="/">home</a>
+        <li><a class="waves-effect" href="/developers">developers</a></li>
+         <li><a class="waves-effect" href="/reservations">reservations</a></li>
+        <li><a class="waves-effect" href="/about">about</a></li>
+        <li><a class="waves-effect" href="/signup">sign up</a></li>
+        <li><a class="waves-effect" href="/login">login</a></li>
+        <li><a class="waves-effect" href="logout">logout</a></li>
       </ul>
     </div>
-    </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div>
-      {{!-- mobile menu --}}
-       <div class="mobile-menu-icon" id="mobileMenuIcon">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </div>
+    {{!-- </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div> --}}
 {{!--  --}}
-  </div>
-        </nav>
+  
+        
       </header>
       <main class="container mt-5">
         <!-- Render the sub layout -->
@@ -129,13 +124,20 @@
     <script src="/js/redirect.js"></script>
   {{!-- Side Nav Bar --}}
     <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var elems = document.querySelectorAll(".sidenav");
-      var instances = M.Sidenav.init(elems);
-    });
+   document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuIcon = document.querySelector("#mobileMenuIcon");
+  const slideOut = document.querySelector("#slide-out");
+
+  mobileMenuIcon.addEventListener("click", function () {
+    // Open the side navigation
+    const instance = M.Sidenav.getInstance(slideOut);
+    instance.open();
+  });
+
+  // Initialize the side navigation
+  const slideOutInstance = M.Sidenav.init(slideOut);
+});
   </script>
-
-
   </body>
 
 </html>

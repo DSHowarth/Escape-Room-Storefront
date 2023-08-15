@@ -53,16 +53,9 @@ nav a:hover {
   width: 25px;
   height: 3px;
   margin: 4px 0;
-  /* background-color: var(--grey); */
-  /* transition: background-color 0.3s ease; */
 }
 
-/* Change the background color of the hamburger icon on click */
-/* .mobile-menu-icon.clicked .bar {
-  background-color: white;
-} */
-
-/* Logout button styles */
+/* logout button styles */
 #logout {
   color: black;
   background-color: transparent;
@@ -167,9 +160,6 @@ body {
   box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00,
     inset 0 0 10px #00ff00, inset 0 0 20px #00ff00;
   border-color: #00ff00; /* Change border color on hover */
-  /* width: 110px;
-  height: 110px;
-  line-height: 110px; */
 }
 
 .button-text {
@@ -193,6 +183,7 @@ body {
 .resTitle {
   margin-bottom: 80px;
   text-align: center;
+  font-size: 30px;
 }
 
 .calendarContainer {
@@ -389,13 +380,50 @@ body {
   height: 20px;
   margin-bottom: -5px;
 }
-
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--green);
+}
 /*-------------------------------------------------- MEDIA QUERIES ----------------------------------------------------*/
+
+@media screen and (min-width: 768px) {
+  #mobileMenuIcon {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  #mobileMenuDropdown {
+    display: none;
+  }
+  /* reservations title */
+  .resTitle {
+    font-size: 15px;
+  }
+
+  /* style the day container */
+  .day-container {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* adjust button styles for better mobile appearance */
+  .day-container .btn {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+  }
+}
 
 @media screen and (min-width: 360px) and (max-width: 1366px) {
   body {
     font-size: 14px;
   }
+
   .neon-button {
     bottom: 10%;
     right: 5%;
@@ -422,8 +450,9 @@ body {
     justify-content: space-between;
     padding: 10px 0;
   }
-  nav a {
-    display: none; /* hide the links in the navigation */
+
+  #slide-out a {
+    color: black;
   }
 
   /* adjust the button size for smaller screens */
@@ -443,9 +472,44 @@ body {
   .mobile-menu-icon {
     display: block; /* Show the hamburger icon */
     cursor: pointer;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 100; /* located on top of everything */
   }
 
   .mobile-menu-icon.clicked .bar {
     background-color: white;
+  }
+}
+
+/* sign up page */
+
+@media screen and (min-width: 360px) {
+  .card {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .form-group {
+    text-align: left;
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+  }
+
+  .text-center {
+    text-align: center;
   }
 }
