@@ -60,7 +60,7 @@
           {{#if loggedIn}}
             <a href="/profile">my reservations</a>/
             <a href="/developers">developers</a>/
-            <button class="no-button {{#if isHomepage}} white-text{{/if}}" id="logout">logout</button>
+            <button class="no-button {{#if isHomepage}} white-text{{/if}} logout">logout</button>
           {{else}}
             <a href="/developers">developers</a>/
             <a href="/signup">sign up</a>/
@@ -95,7 +95,7 @@
         {{#if loggedIn}}
         <li><a class="side-nav-button" href="/profile"><img src="/images/profile.png" alt="Profile" class="nav-icon">PROFILE</a></li>
         <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
-        <li><a class="side-nav-button" href="/logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
+        <li><button class="side-nav-button logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</button></li>
         {{else}}
         <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
         <li><a class="side-nav-button" href="/login"><img src="/images/login.png" alt="Login" class="nav-icon">LOGIN</a></li>
