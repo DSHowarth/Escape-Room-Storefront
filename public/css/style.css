@@ -14,6 +14,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: "Quicksand", sans-serif;
 }
 
 .logo {
@@ -32,13 +33,14 @@ nav {
   width: 100%;
   background-color: transparent;
   box-shadow: none;
+  /* margin-left: 50%; */
 }
 
 nav a {
   color: black;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  transition: color 0.3s ease;
+  /* transition: color 0.3s ease; */
 }
 
 nav a:hover {
@@ -50,6 +52,43 @@ nav a:hover {
   text-decoration: none;
 }
 
+.desktop-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.desktop-nav a {
+  position: relative;
+}
+
+/* add '/' to the navbar */
+.desktop-nav a:not(:last-child)::after {
+  content: "/";
+  display: inline-block;
+  margin: 0 10px;
+  color: black;
+}
+
+/* logout button styles */
+#logout {
+  color: black;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  font-family: var(--font-navbar);
+}
+
+#logout:hover {
+  color: var(--green); /* Change color on hover */
+}
+/*-------------------------------------------------- SIDENAV ----------------------------------------------------*/
 .side-nav-logo {
   width: 80%;
   padding: 20px;
@@ -111,24 +150,8 @@ nav a:hover {
   margin: 4px 0;
 }
 
-/* logout button styles */
-#logout {
+.link-underline {
   color: black;
-  background-color: transparent;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 16px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-#logout:hover {
-  color: var(--green); /* Change color on hover */
-  text-decoration: underline;
-}
-
-body {
-  font-family: "Quicksand", sans-serif;
 }
 
 /*-------------------------------------------------- HOMEPAGE ----------------------------------------------------*/
@@ -310,18 +333,19 @@ body {
 }
 
 .modal-footer {
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .btn-secondary {
   margin-right: 10px;
+  background-color: var(--grey);
 }
 
 .btn-primary {
   background-color: var(--green);
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 0px 20px;
   font-size: 16px;
   color: white;
   cursor: pointer;
@@ -332,6 +356,29 @@ body {
   background-color: white;
   color: var(--green);
   border: 2px solid var(--green);
+}
+
+.modal-footer .btn-secondary {
+  background-color: var(--grey);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 20px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.modal-footer .btn-secondary:hover {
+  background-color: white;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+
+.btn {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--grey);
+  border-bottom-color: var(--grey);
 }
 
 /*-------------------------------------------------- PROFILE ----------------------------------------------------*/
@@ -384,7 +431,7 @@ body {
   background-color: var(--green);
   border: none;
   border-radius: 5px;
-  padding: 8px 15px;
+  padding: 0px 15px;
   font-size: 16px;
   color: white;
   cursor: pointer;
@@ -456,11 +503,22 @@ body {
   height: 20px;
   margin-bottom: -5px;
 }
-.form-control:focus {
+
+/*-------------------------------------------------- LOGIN / SIGNUP ----------------------------------------------------*/
+
+#signup-form .form-control,
+#login-form .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: var(--green);
+  border-color: var(--grey);
+  border-bottom-color: var(--grey);
 }
+
+#signup-form .form-control,
+#login-form .form-control {
+  border-bottom-color: var(--grey);
+}
+
 /*-------------------------------------------------- MEDIA QUERIES ----------------------------------------------------*/
 
 @media screen and (min-width: 768px) {
@@ -475,7 +533,8 @@ body {
   }
   /* reservations title */
   .resTitle {
-    font-size: 15px;
+    font-size: 20px;
+    margin-top: 100px;
   }
 
   .monkey-cup-logo {

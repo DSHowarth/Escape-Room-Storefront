@@ -60,7 +60,7 @@
           {{#if loggedIn}}
             <a href="/profile">my reservations</a>/
             <a href="/developers">developers</a>/
-            <button class="no-button" id="logout">logout</button>
+            <button class="no-button {{#if isHomepage}} white-text{{/if}}" id="logout">logout</button>
           {{else}}
             <a href="/developers">developers</a>/
             <a href="/signup">sign up</a>/
@@ -89,15 +89,19 @@
             {{!-- <a href="#email"><h4 class="side-nav-subheader">AN ESCAPE ROOM ADVENTURE</h4></a> --}}
           </div>
         </li>
-        {{!-- {{#if isMobileView}} --}}
         <li><a class="side-nav-button" href="/"><img src="/images/home.png" alt="Home" class="nav-icon">HOME</a>
-        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+        <li><a class="side-nav-button" href="/about-more"><img src="/images/about.png" alt="About" class="nav-icon">ABOUT</a></li>
         <li><a class="side-nav-button" href="/reservations"><img src="/images/my res.png" alt="Reservations" class="nav-icon">MY RESERVATIONS</a></li>
-        <li><a class="side-nav-button" href="/about"><img src="/images/about.png" alt="About" class="nav-icon">ABOUT</a></li>
-        <li><a class="side-nav-button" href="/signup"><img src="/images/sign up.png" alt="Sign Up" class="nav-icon">SIGN UP</a></li>
+        {{#if loggedIn}}
+        <li><a class="side-nav-button" href="/profile"><img src="/images/profile.png" alt="Profile" class="nav-icon">PROFILE</a></li>
+        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+        <li><a class="side-nav-button" href="/logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
+        {{else}}
+        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
         <li><a class="side-nav-button" href="/login"><img src="/images/login.png" alt="Login" class="nav-icon">LOGIN</a></li>
-        <li><a class="side-nav-button" href="logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
+        <li><a class="side-nav-button" href="/signup"><img src="/images/sign up.png" alt="Sign Up" class="nav-icon">SIGN UP</a></li>
       </ul>
+      {{/if}}
     </div>
     {{!-- </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div> --}}
 {{!--  --}}
