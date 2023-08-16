@@ -1,10 +1,10 @@
-const router = require('express').Router()
-const redirToProf = require('../../utils/redirec')
+const router = require("express").Router();
+const redirToProf = require("../../utils/redirec");
 // end point with /login
 
 // renders the login page
-router.get('/', redirToProf, (req, res) => {
-    res.render('login')
-})
+router.get("/", redirToProf, (req, res) => {
+  res.render("login");
+});
 
-module.exports = router
+module.exports = router;

@@ -60,7 +60,7 @@
           {{#if loggedIn}}
             <a href="/profile">my reservations</a>/
             <a href="/developers">developers</a>/
-            <button class="no-button" id="logout">logout</button>
+            <button class="no-button {{#if isHomepage}} white-text{{/if}}" id="logout">logout</button>
           {{else}}
             <a href="/developers">developers</a>/
             <a href="/signup">sign up</a>/
@@ -84,19 +84,24 @@
         <li>
           <div class="user-view">
             {{!-- <div class="background"><img src="/images/A Monkey's Cup-logo.png" /></div> --}}
-            <a href="/"><img class="circle" src="/images/A Monkey's Cup-logo.png" /></a>
-            <a href="#name"><h2 class="name">THE MONKEY'S CUP</h2></a>
-            <a href="#email"><h4 class="sub-header">AN ESCAPE ROOM ADVENTURE</h4></a>
+            <a href="/"><img class="side-nav-logo" src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691958295/escape-room-adventure-logo_wzo7or.png" /></a>
+            {{!-- <a href="#name"><h2 class="name">THE MONKEY'S CUP</h2></a> --}}
+            {{!-- <a href="#email"><h4 class="side-nav-subheader">AN ESCAPE ROOM ADVENTURE</h4></a> --}}
           </div>
         </li>
-        <li><a class="waves-effect" href="/">home</a>
-        <li><a class="waves-effect" href="/developers">developers</a></li>
-         <li><a class="waves-effect" href="/reservations">reservations</a></li>
-        <li><a class="waves-effect" href="/about">about</a></li>
-        <li><a class="waves-effect" href="/signup">sign up</a></li>
-        <li><a class="waves-effect" href="/login">login</a></li>
-        <li><a class="waves-effect" href="logout">logout</a></li>
+        <li><a class="side-nav-button" href="/"><img src="/images/home.png" alt="Home" class="nav-icon">HOME</a>
+        <li><a class="side-nav-button" href="/about-more"><img src="/images/about.png" alt="About" class="nav-icon">ABOUT</a></li>
+        <li><a class="side-nav-button" href="/reservations"><img src="/images/my res.png" alt="Reservations" class="nav-icon">MY RESERVATIONS</a></li>
+        {{#if loggedIn}}
+        <li><a class="side-nav-button" href="/profile"><img src="/images/profile.png" alt="Profile" class="nav-icon">PROFILE</a></li>
+        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+        <li><a class="side-nav-button" href="/logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
+        {{else}}
+        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+        <li><a class="side-nav-button" href="/login"><img src="/images/login.png" alt="Login" class="nav-icon">LOGIN</a></li>
+        <li><a class="side-nav-button" href="/signup"><img src="/images/sign up.png" alt="Sign Up" class="nav-icon">SIGN UP</a></li>
       </ul>
+      {{/if}}
     </div>
     {{!-- </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div> --}}
 {{!--  --}}

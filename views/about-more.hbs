@@ -1,75 +1,60 @@
 <style>
 
-    .introduction {
-        position: absolute;
-        z-index: 100;
-        text-shadow: 0 0 30px #249b56; 
-        
-        animation-duration: 1s;
-        animation-iteration-count: infinite;
-        display: none;
-    }
-
-    @keyframes glow{
-        0%{
-            text-shadow: 0 0 15px #249b56;
-        }
-        50%{
-            text-shadow: 0 0 7px #249b56;
-        }
-        100%{
-            text-shadow: 0 0 15px #249b56
-        }
-    }
-
-
-    .intro-container{
-        position: relative;
-        left: -20%;
-        width: 50%;
-        z-index: 100;
-        opacity: 0;
-        
-        animation-fill-mode: forwards;
-        animation-duration: 5s;
-        display: none;
-    }
-
-
-    @keyframes intro {
-        0%{
-            opacity: 0;
-            left: -20%;
-        }
-        100%{
-            opacity: 1;
-            left: 0;
-        }
-    }
+  .introduction { position: absolute; z-index: 100; text-shadow: 0 0 30px
+  #249b56; animation-duration: 1s; animation-iteration-count: infinite; display:
+  none; } @keyframes glow{ 0%{ text-shadow: 0 0 15px #249b56; } 50%{
+  text-shadow: 0 0 7px #249b56; } 100%{ text-shadow: 0 0 15px #249b56 } }
+  .intro-container{ position: relative; left: -20%; width: 50%; z-index: 100;
+  opacity: 0; animation-fill-mode: forwards; animation-duration: 5s; display:
+  none; } @keyframes intro { 0%{ opacity: 0; left: -20%; } 100%{ opacity: 1;
+  left: 0; } }
 
 </style>
+
+{{! CSS }}
+<link rel="stylesheet" href="/css/style.css" />
+
 <div class="intro-container">
-<p class="introduction"> Long before recorded history, before humanity had dreamed of electricity, engines, or even fire, there was the jungle.
-    Deep within the vast expanses of tall canopies and dense undergrowth stands a stone temple. No one knows who built it, or how. But they call it The Monkey's Cup.
-    Through the ages, stories have been passed down of a treasure in this place unlike anything on Earth. <br>
-    <br>
+  <p class="introduction">
+    Long before recorded history, before humanity had dreamed of electricity,
+    engines, or even fire, there was the jungle. Deep within the vast expanses
+    of tall canopies and dense undergrowth stands a stone temple. No one knows
+    who built it, or how. But they call it The Monkey's Cup. Through the ages,
+    stories have been passed down of a treasure in this place unlike anything on
+    Earth.
+    <br />
+    <br />
 
-    But, of course, the treasure isn't just there for the taking. This temple, they say, protects its prize with more than just walls and forests.
-    Any who dare tread on those primordial stones will have to avoid deadly traps, navigate mind-bending puzzles, and escape the Guardian. <br>
-    <br>
+    But, of course, the treasure isn't just there for the taking. This temple,
+    they say, protects its prize with more than just walls and forests. Any who
+    dare tread on those primordial stones will have to avoid deadly traps,
+    navigate mind-bending puzzles, and escape the Guardian.
+    <br />
+    <br />
 
-    While the stories have survived, those brave enough to try... have not. <br>
-    <br>
-    
-    Can you solve the ancient riddles and find the treasure of The Monkey's Cup?<br>
+    While the stories have survived, those brave enough to try... have not.
+    <br />
+    <br />
+
+    Can you solve the ancient riddles and find the treasure of The Monkey's Cup?<br
+    />
     And can you live to tell the tale?
-    </p>
+  </p>
 </div>
 <canvas id="more-canvas" style="width: 100%; height: 100%;"></canvas>
+
 <script type="module" src="/js/about-more.mjs"></script>
 
 <p class="text-center">Visit us at:</p>
 <div class="d-flex justify-content-center mb-5">
-<iframe class="mb-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.1934037954334!2d-120.96548752329663!3d37.762063071988585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809059c22078d295%3A0x6c9ac54e0efad14!2s28180%20E%20River%20Rd%2C%20Escalon%2C%20CA%2095320!5e0!3m2!1sen!2sus!4v1692038782156!5m2!1sen!2sus" 
-width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+  <iframe
+    class="mb-5"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.1934037954334!2d-120.96548752329663!3d37.762063071988585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809059c22078d295%3A0x6c9ac54e0efad14!2s28180%20E%20River%20Rd%2C%20Escalon%2C%20CA%2095320!5e0!3m2!1sen!2sus!4v1692038782156!5m2!1sen!2sus"
+    width="400"
+    height="300"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
 </div>
