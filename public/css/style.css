@@ -74,7 +74,7 @@ nav a:hover {
 }
 
 /* logout button styles */
-#logout {
+.logout {
   color: black;
   background-color: transparent;
   border: none;
@@ -85,7 +85,7 @@ nav a:hover {
   font-family: var(--font-navbar);
 }
 
-#logout:hover {
+.logout:hover {
   color: var(--green); /* Change color on hover */
 }
 /*-------------------------------------------------- SIDENAV ----------------------------------------------------*/
