@@ -3,23 +3,63 @@
     .introduction {
         position: absolute;
         z-index: 100;
+        text-shadow: 0 0 30px #249b56; 
+        
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        display: none;
     }
+
+    @keyframes glow{
+        0%{
+            text-shadow: 0 0 15px #249b56;
+        }
+        50%{
+            text-shadow: 0 0 7px #249b56;
+        }
+        100%{
+            text-shadow: 0 0 15px #249b56
+        }
+    }
+
 
     .intro-container{
         position: relative;
+        left: -20%;
         width: 50%;
         z-index: 100;
+        opacity: 0;
+        
+        animation-fill-mode: forwards;
+        animation-duration: 5s;
+        display: none;
     }
+
+
+    @keyframes intro {
+        0%{
+            opacity: 0;
+            left: -20%;
+        }
+        100%{
+            opacity: 1;
+            left: 0;
+        }
+    }
+
 </style>
 <div class="intro-container">
 <p class="introduction"> Long before recorded history, before humanity had dreamed of electricity, engines, or even fire, there was the jungle.
     Deep within the vast expanses of tall canopies and dense undergrowth stands a stone temple. No one knows who built it, or how. But they call it The Monkey's Cup.
     Through the ages, stories have been passed down of a treasure in this place unlike anything on Earth. <br>
+    <br>
 
     But, of course, the treasure isn't just there for the taking. This temple, they say, protects its prize with more than just walls and forests.
     Any who dare tread on those primordial stones will have to avoid deadly traps, navigate mind-bending puzzles, and escape the Guardian. <br>
+    <br>
 
     While the stories have survived, those brave enough to try... have not. <br>
+    <br>
     
     Can you solve the ancient riddles and find the treasure of The Monkey's Cup?<br>
     And can you live to tell the tale?

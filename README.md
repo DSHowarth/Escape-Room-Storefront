@@ -47,7 +47,6 @@ See how our site looks on mobile
 - Java Script: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - jQuery: [jQuery](https://jquery.com/)
 - Fetch API: [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- AJAX: [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX)
 - Qrcode.js: [Qrcode.js](https://davidshimjs.github.io/qrcodejs/)
 - Three.js: [Three.js](https://threejs.org/)
 - Materialize: [Materialize](https://materializecss.com/)
@@ -125,17 +124,19 @@ This work is based on ["Jungle Environment"](https://sketchfab.com/3d-models/jun
 
 MVP User stories
 
--
+- ```As a User, I want to be able to see a landing page that welcomes me so that I can get a good first impression about the escape room.```
 
--
+- ```As a User, I want to be able to make reservations for available times so that I can be confident the escape room will be available when I go.```
 
--
+- ```As a User, I want to be able to view my reservations so that I don’t have to remember everything I reserve.```
 
--
+- ```As a User, I want to be able to log out so that I can safely access the site from a public device without compromising my info.```
+
+- ```As a User, I want to be able to cancel reservations so that I can avoid getting charged when I can no longer attend.```
 
 ## CSS Framework
 
-We used ....
+Our main framework was Bootstrap, but we also have included a large amount of custom CSS to get the appearance we wanted. 
 
 ## Learning points
 
@@ -145,7 +146,7 @@ We learned ...
 
 ## Deployment
 
-Website URL: [The Monkey's Cup](https://link.com)
+Website URL: [The Monkey's Cup](https://sheltered-scrubland-47894-17ae2d63c103.herokuapp.com/)
 
 ![alt text](/images/home-page.png)
 
@@ -182,13 +183,7 @@ Currently a student in the UC Berkley Full Stack Flex Bootcamp.
 
 ## Questions
 
-For any questions or inquires, feel free to reach out to us via GitHub:
-[Derek Stanley-Howarth](https://github.com/DSHowarth/) or Email: dkshowarth@gmail.com.
-[June Moon](https://github.com/moonjunsain) or Email: moonjunsain@gmail.com.
-[Elena Gurchinskaia](https://github.com/elenagurchinskaia) or Email: elenagurchinskaia@gmail.com.
-
-qrcode js: https://github.com/davidshimjs/qrcodejs
-
-credit (3d models)
-treasure chest: https://sketchfab.com/D.art
-jungle environment: https://sketchfab.com/KNUT-OLAV_UTISTOG
+For any questions or inquires, feel free to reach out to us via GitHub or Email:
+- [Derek Stanley-Howarth](https://github.com/DSHowarth/), dkshowarth@gmail.com.
+- [June Moon](https://github.com/moonjunsain), moonjunsain@gmail.com.
+- [Elena Gurchinskaia](https://github.com/elenagurchinskaia), elenagurchinskaia@gmail.com.
