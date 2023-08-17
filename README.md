@@ -56,7 +56,7 @@ See how our site looks on mobile
 - bcrypt: [bcrypt](https://www.npmjs.com/package/bcrypt)
 - Day.js: [Day.js](https://day.js.org/)
 - Cloudinary: [Cloudinary](https://cloudinary.com/)
-  qrcode js: https://github.com/davidshimjs/qrcodejs
+- qrcode js: https://github.com/davidshimjs/qrcodejs
 
 ### Database
 
