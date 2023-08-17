@@ -14,21 +14,13 @@ We have included some information about this project below. For a more detailed 
 
 See how our site functions
 
-<!-- TODO: Fix video link -->
-<video width="700" controls>
-  <source src="images/user-input-demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![reservation-demo](./reservation-demo.gif)
 
 <br>
 
 See how our site looks on mobile
 
-<!-- TODO: Fix video link -->
-<video width="700" controls>
-  <source src="images/video-responsive-demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![mobile-demo](./mobile.gif)
 
 ### Table of Contents
 
@@ -64,7 +56,7 @@ See how our site looks on mobile
 - bcrypt: [bcrypt](https://www.npmjs.com/package/bcrypt)
 - Day.js: [Day.js](https://day.js.org/)
 - Cloudinary: [Cloudinary](https://cloudinary.com/)
-  qrcode js: https://github.com/davidshimjs/qrcodejs
+- qrcode js: https://github.com/davidshimjs/qrcodejs
 
 ### Database
 
@@ -147,6 +139,9 @@ Our main framework was Bootstrap, but we also have included a large amount of cu
 ## Learning points
 <!-- TODO: Decide what we want to put here -->
 We learned ...
+1. Use of three js and cloudinary
+2. Use of database and sequelize to handle data
+3. Connecting the concept for front end and back end development
 
 <br>
 
