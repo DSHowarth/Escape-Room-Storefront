@@ -118,23 +118,34 @@ Model License:
 
 This work is based on ["Jungle Environment"](https://sketchfab.com/3d-models/jungle-environment-4133ba3021ce466e9ae88699d3585dfd) by [Bindestrek](https://sketchfab.com/KNUT-OLAV_UTISTOG) licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 
+**Video Animation**
+
+<br>
+Video Information:
+
+- title: 3D Jungle In the Dark
+- source: [Source URL](https://motionarray.com/stock-video/3d-jungle-in-the-dark-1643458/)
+- author: [urzine](https://motionarray.com/browse/producer/urzine/)
+
+This work is based on ["3D Jungle In the Dark"](https://motionarray.com/stock-video/3d-jungle-in-the-dark-1643458/) by [urzine](https://motionarray.com/browse/producer/urzine/)
+
 ## User Stories
 
 MVP User stories
 
-- ```As a User, I want to be able to see a landing page that welcomes me so that I can get a good first impression about the escape room.```
+- `As a User, I want to be able to see a landing page that welcomes me so that I can get a good first impression about the escape room.`
 
-- ```As a User, I want to be able to make reservations for available times so that I can be confident the escape room will be available when I go.```
+- `As a User, I want to be able to make reservations for available times so that I can be confident the escape room will be available when I go.`
 
-- ```As a User, I want to be able to view my reservations so that I don’t have to remember everything I reserve.```
+- `As a User, I want to be able to view my reservations so that I don’t have to remember everything I reserve.`
 
-- ```As a User, I want to be able to log out so that I can safely access the site from a public device without compromising my info.```
+- `As a User, I want to be able to log out so that I can safely access the site from a public device without compromising my info.`
 
-- ```As a User, I want to be able to cancel reservations so that I can avoid getting charged when I can no longer attend.```
+- `As a User, I want to be able to cancel reservations so that I can avoid getting charged when I can no longer attend.`
 
 ## CSS Framework
 
-Our main framework was Bootstrap, but we also have included a large amount of custom CSS to get the appearance we wanted. 
+Our main framework was Bootstrap, but we also have included a large amount of custom CSS to get the appearance we wanted.
 
 ## Learning points
 <!-- TODO: Decide what we want to put here -->
@@ -185,6 +196,7 @@ Currently a student in the UC Berkley Full Stack Flex Bootcamp.
 ## Questions
 
 For any questions or inquires, feel free to reach out to us via GitHub or Email:
+
 - [Derek Stanley-Howarth](https://github.com/DSHowarth/), dkshowarth@gmail.com.
 - [June Moon](https://github.com/moonjunsain), moonjunsain@gmail.com.
 - [Elena Gurchinskaia](https://github.com/elenagurchinskaia), elenagurchinskaia@gmail.com.
