@@ -10,8 +10,11 @@ With "The Monkey's Cup," our exciting Jungle Escape Room adventure, you can step
 
 You can make sure you get a spot on this exciting adventure with just one click. Get the ticket now and take advantage of the chance to solve the puzzles in "The Monkey's Cup" escape room. It will be a thrilling and unforgettable experience.
 
+We have included some information about this project below. For a more detailed look, including code snippets, please check out our [Presentation Slides](https://docs.google.com/presentation/d/1XDQ_wl5DtwbyTw7h9gXseRgkAgrUT7ExidxnsB6zgdc/edit?usp=sharing)
+
 See how our site functions
 
+<!-- TODO: Fix video link -->
 <video width="700" controls>
   <source src="images/user-input-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -21,6 +24,7 @@ See how our site functions
 
 See how our site looks on mobile
 
+<!-- TODO: Fix video link -->
 <video width="700" controls>
   <source src="images/video-responsive-demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
@@ -29,13 +33,13 @@ See how our site looks on mobile
 ### Table of Contents
 
 - [Introduction](#introduction)
-- [Features](#features)
 - [Front-End Technologies](#front-end-technologies)
 - [Back-End Technologies](#back-end-technologies)
 - [Database](#database)
 - [User Authentication](#user-authentication)
 - [Session Management](#session-management)
 - [Templating Engine](#templating-engine)
+- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributors](#contributors)
@@ -89,6 +93,8 @@ See how our site looks on mobile
 
 ## Technology Used
 
+<!-- TODO: Add video credit -->
+
 <br>
 
 **3D Model**
@@ -139,7 +145,7 @@ MVP User stories
 Our main framework was Bootstrap, but we also have included a large amount of custom CSS to get the appearance we wanted. 
 
 ## Learning points
-
+<!-- TODO: Decide what we want to put here -->
 We learned ...
 
 <br>
@@ -148,7 +154,7 @@ We learned ...
 
 Website URL: [The Monkey's Cup](https://sheltered-scrubland-47894-17ae2d63c103.herokuapp.com/)
 
-![alt text](/images/home-page.png)
+![Screenshot of homepage](./home-page.png)
 
 <br>
 
