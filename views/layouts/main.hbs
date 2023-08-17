@@ -31,52 +31,53 @@
   <body>
    <section class="home-section{{#if isHomepage}} homepage{{/if}}">
      <div class="container-fluid">
-    <header class="d-flex justify-content-between align-items-center p-2">
-      {{#unless isHomepage}}
-      <h1 class="m-0">
-        <a href="/">
-          <img
-            src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691958295/escape-room-adventure-logo_wzo7or.png"
-            alt="Logo"
-            class="logo"
-          />
-        </a>
-      </h1>
-       {{/unless}}
+      <header class="d-flex justify-content-between align-items-center p-2">
+        {{#unless isHomepage}}
+          <h1 class="m-0">
+            <a href="/" class="logo-small">
+              <img
+                src="https://res.cloudinary.com/dfecvj7s4/image/upload/v1691958295/escape-room-adventure-logo_wzo7or.png"
+                alt="Logo"
+                class="logo"
+              />
+            </a>
+          </div>
+          </h1>
+          {{/unless}}
 
-
-<!-- Mobile menu dropdown -->
-  <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
-    {{!-- desktop nav-bar --}}
-        <nav class="desktop-nav d-flex justify-content-center align-items-center">
+    <body class="{{#if isHomepage}}homepage{{/if}}"></body>
+    <!-- Mobile menu dropdown -->
+      <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
+      {{!-- desktop nav-bar --}}
+          <nav class="desktop-nav d-flex justify-content-center align-items-center">
           <!-- desktop navigation links for different pages -->
-          <a href="/" >home</a>/
-          {{#if isMobileView}}
-           <a href="/about-more">about</a>/
-           {{else}}
-          <a href="/about">about</a>/
-           {{/if}}
-          <a href="/reservations">book a reservation</a>/
-          {{#if loggedIn}}
-            <a href="/profile">my reservations</a>/
-            <a href="/developers">developers</a>/
-            <button class="no-button {{#if isHomepage}} white-text{{/if}}" id="logout">logout</button>
-          {{else}}
-            <a href="/developers">developers</a>/
-            <a href="/signup">sign up</a>/
-            <a href="/login">login</a>
-          {{/if}}
+         
+             <a href="/" >home</a>/
+             {{#if isMobileView}}
+             <a href="/about-more">about</a>/
+             {{else}}
+             <a href="/about">about</a>/
+             {{/if}}
+             <a href="/reservations">book a reservation</a>/
+             {{#if loggedIn}}
+             <a href="/profile">my reservations</a>/
+             <a href="/developers">developers</a>/
+             <button class="no-button {{#if isHomepage}} white-text{{/if}}" id="logout">logout</button>
+             {{else}}
+             <a href="/developers">developers</a>/
+             <a href="/signup">sign up</a>/
+             <a href="/login">login</a>
+             {{/if}}
           </nav>
-  </div>
-  <!--MOBILE NAV BAR-->
+      </div>
+      <!--MOBILE NAV BAR-->
   
       {{!-- mobile menu --}}
        <div class="mobile-menu-icon" id="mobileMenuIcon">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+       </div>
 
   <section class="bg-img">
     <div>
@@ -89,25 +90,21 @@
             {{!-- <a href="#email"><h4 class="side-nav-subheader">AN ESCAPE ROOM ADVENTURE</h4></a> --}}
           </div>
         </li>
-        <li><a class="side-nav-button" href="/"><img src="/images/home.png" alt="Home" class="nav-icon">HOME</a>
-        <li><a class="side-nav-button" href="/about-more"><img src="/images/about.png" alt="About" class="nav-icon">ABOUT</a></li>
-        <li><a class="side-nav-button" href="/reservations"><img src="/images/my res.png" alt="Reservations" class="nav-icon">MY RESERVATIONS</a></li>
-        {{#if loggedIn}}
-        <li><a class="side-nav-button" href="/profile"><img src="/images/profile.png" alt="Profile" class="nav-icon">PROFILE</a></li>
-        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
-        <li><a class="side-nav-button" href="/logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
-        {{else}}
-        <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
-        <li><a class="side-nav-button" href="/login"><img src="/images/login.png" alt="Login" class="nav-icon">LOGIN</a></li>
-        <li><a class="side-nav-button" href="/signup"><img src="/images/sign up.png" alt="Sign Up" class="nav-icon">SIGN UP</a></li>
+          <li><a class="side-nav-button" href="/"><img src="/images/home.png" alt="Home" class="nav-icon">HOME</a>
+          <li><a class="side-nav-button" href="/about-more"><img src="/images/about.png" alt="About" class="nav-icon">ABOUT</a></li>
+          <li><a class="side-nav-button" href="/reservations"><img src="/images/my res.png" alt="Reservations" class="nav-icon">MY RESERVATIONS</a></li>
+          {{#if loggedIn}}
+          <li><a class="side-nav-button" href="/profile"><img src="/images/profile.png" alt="Profile" class="nav-icon">PROFILE</a></li>
+          <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+          <li><a class="side-nav-button" href="/logout"><img src="/images/logout.png" alt="Logout" class="nav-icon">LOGOUT</a></li>
+          {{else}}
+          <li><a class="side-nav-button" href="/developers"><img src="/images/dev.png" alt="Developers" class="nav-icon">DEVELOPERS</a></li>
+          <li><a class="side-nav-button" href="/login"><img src="/images/login.png" alt="Login" class="nav-icon">LOGIN</a></li>
+          <li><a class="side-nav-button" href="/signup"><img src="/images/sign up.png" alt="Sign Up" class="nav-icon">SIGN UP</a></li>
       </ul>
-      {{/if}}
+          {{/if}}
     </div>
-    {{!-- </li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div> --}}
-{{!--  --}}
-  
-        
-      </header>
+    </header>
       <main class="container mt-5">
         <!-- Render the sub layout -->
         {{{body}}}
@@ -125,18 +122,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <!-- MaterializeCSS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/js/redirect.js"></script>
   {{!-- Side Nav Bar --}}
     <script>
-   document.addEventListener("DOMContentLoaded", function () {
+
+
+  document.addEventListener("DOMContentLoaded", function () {
   const mobileMenuIcon = document.querySelector("#mobileMenuIcon");
   const slideOut = document.querySelector("#slide-out");
 
   mobileMenuIcon.addEventListener("click", function () {
     // Open the side navigation
-    const instance = M.Sidenav.getInstance(slideOut);
-    instance.open();
+  const instance = M.Sidenav.getInstance(slideOut);
+  instance.open();
   });
 
   // Initialize the side navigation
